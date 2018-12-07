@@ -1,0 +1,147 @@
+fileFormatVersion: 2
+guid: 5444e76f534693640a7b921a335434b7
+timeCreated: 1481119245
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Auge_Li
+    100002: Auge_Re
+    100004: Bein_HL
+    100006: Bein_HR
+    100008: Bein_VL
+    100010: Bein_VR
+    100012: Empty
+    100014: K_rper
+    100016: Kopf
+    100018: Lampe
+    100020: Nase
+    100022: Ohr_links
+    100024: Ohr_rechts
+    100026: Plane
+    100028: Puschel
+    100030: //RootNode
+    400000: Auge_Li
+    400002: Auge_Re
+    400004: Bein_HL
+    400006: Bein_HR
+    400008: Bein_VL
+    400010: Bein_VR
+    400012: Empty
+    400014: K_rper
+    400016: Kopf
+    400018: Lampe
+    400020: Nase
+    400022: Ohr_links
+    400024: Ohr_rechts
+    400026: Plane
+    400028: Puschel
+    400030: //RootNode
+    2300000: Auge_Li
+    2300002: Auge_Re
+    2300004: Bein_HL
+    2300006: Bein_HR
+    2300008: Bein_VL
+    2300010: Bein_VR
+    2300012: K_rper
+    2300014: Kopf
+    2300016: Lampe
+    2300018: Nase
+    2300020: Ohr_links
+    2300022: Ohr_rechts
+    2300024: Plane
+    2300026: Puschel
+    3300000: Auge_Li
+    3300002: Auge_Re
+    3300004: Bein_HL
+    3300006: Bein_HR
+    3300008: Bein_VL
+    3300010: Bein_VR
+    3300012: K_rper
+    3300014: Kopf
+    3300016: Lampe
+    3300018: Nase
+    3300020: Ohr_links
+    3300022: Ohr_rechts
+    3300024: Plane
+    3300026: Puschel
+    4300000: Lampe
+    4300002: Plane
+    4300004: Puschel
+    4300006: Ohr_links
+    4300008: Ohr_rechts
+    4300010: Auge_Re
+    4300012: Auge_Li
+    4300014: Nase
+    4300016: Kopf
+    4300018: Bein_VR
+    4300020: Bein_HR
+    4300022: Bein_HL
+    4300024: Bein_VL
+    4300026: K_rper
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
