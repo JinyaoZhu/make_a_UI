@@ -48,10 +48,10 @@ public class setting : MonoBehaviour {
     }
     public void judgeClicked()
     {
-        serverContent.gameObject.SetActive(false);
-        loginContent.gameObject.SetActive(false);
-        generalConent.gameObject.SetActive(false);
-        logoutjudge.gameObject.SetActive(false);
+        //serverContent.gameObject.SetActive(false);
+       // loginContent.gameObject.SetActive(false);
+     //   generalConent.gameObject.SetActive(false);
+      //  logoutjudge.gameObject.SetActive(false);
         judge.gameObject.SetActive(true);
         
     }
