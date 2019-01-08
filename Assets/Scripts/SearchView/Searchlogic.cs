@@ -60,7 +60,7 @@ public class Searchlogic : MonoBehaviour
     {
         //Grid的长度随着生成物体个数变化
         this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.gameObject.GetComponent<RectTransform>().sizeDelta.x, 0);
-        inputtext = GameObject.Find("SearchView").transform.FindChild("MainArea/SearchBar/Text").GetComponent<Text>().text;
+        inputtext = GameObject.Find("SearchView").transform.Find("MainArea/SearchBar/Text").GetComponent<Text>().text;
 
         // 清空grid里的所有东西
         List<Transform> lst = new List<Transform>();
@@ -115,10 +115,8 @@ public class Searchlogic : MonoBehaviour
         searchbg = Instantiate(gridnameshow, this.transform.position, Quaternion.identity) as GameObject;
         searchbg.transform.SetParent(this.transform);
         searchbg.transform.localScale = new Vector3(1, 1, 1);
-
-        // searchbg.transform.FindChild("positiontext").GetComponent<Text>().text = thename;
-
-        GameObject.Find("positiontext").GetComponent<Text>().text = thename;
+        searchbg.transform.Find("positiontext").GetComponent<Text>().text = thename;
+     
 
         //本grid长度加60
         this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.gameObject.GetComponent<RectTransform>().sizeDelta.x, this.gameObject.GetComponent<RectTransform>().sizeDelta.y + this.GetComponent<GridLayoutGroup>().cellSize.y + this.GetComponent<GridLayoutGroup>().spacing.y);
