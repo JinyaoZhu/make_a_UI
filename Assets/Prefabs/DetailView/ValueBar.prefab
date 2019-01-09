@@ -258,6 +258,7 @@ MonoBehaviour:
   minValue: 0
   startValue: 20
   name: TANK 1
+  currentvalue: 0
 --- !u!114 &114585774409218826
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -13,6 +13,8 @@ public class ValueBar : MonoBehaviour {
 	public float startValue;
 	public string  name;
 
+	public float currentvalue;
+
 	// Use this for initialization
 	void Start () {
 		nameText.text = name;
@@ -21,13 +23,17 @@ public class ValueBar : MonoBehaviour {
 		slider.value = startValue;
 	}
 
-	// Update is called once per frame
+    // Update is called once per frame
+    float delta = 0.1f;
 	void Update () {
 
-		slider.value += 0.1f;
+		slider.value += delta;
 
-		if (slider.value >= slider.maxValue) slider.value = slider.minValue;
+		if (slider.value >= slider.maxValue) delta = -delta;
+        if (slider.value <= slider.minValue) delta = -delta;
 
-		valueText.text = slider.value.ToString ("F1") + " L";
+        valueText.text = slider.value.ToString ("F1") + " L";
+
+		currentvalue = slider.value;
 	}
 }
