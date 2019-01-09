@@ -9,7 +9,6 @@ public class Searchlogic : MonoBehaviour
 
     public Button searchbutton;
 
-    int count = 0;
 
     /// <summary>
     /// List 里存的是场景里所有的被查找物体的名称和位置
@@ -45,16 +44,20 @@ public class Searchlogic : MonoBehaviour
 
         
         //初始化查找按钮
-         //searchbutton.onClick.AddListener(Findbutton);
+         searchbutton.onClick.AddListener(Findbutton);
        
         
         
 
     }
 
-    void Update()
+ 
+
+    // <summary>
+    // 查找方法触发
+    // </summary>
+    void Findbutton()
     {
-        count = 0;
         //Grid的长度随着生成物体个数变化
         this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.gameObject.GetComponent<RectTransform>().sizeDelta.x, 0);
         inputtext = GameObject.Find("SearchView").transform.Find("MainArea/SearchBar/Text").GetComponent<Text>().text;
@@ -75,31 +78,6 @@ public class Searchlogic : MonoBehaviour
         compared();
     }
 
-    //// <summary>
-    //// 查找方法触发
-    //// </summary>
-    //void Findbutton()
-    //{
-    //    //Grid的长度随着生成物体个数变化
-    //    this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.gameObject.GetComponent<RectTransform>().sizeDelta.x, 0);
-    //    inputtext = GameObject.Find("SearchView").transform.Find("MainArea/SearchBar/Text").GetComponent<Text>().text;
-
-    //    // 清空grid里的所有东西
-    //    List<Transform> lst = new List<Transform>();
-    //    foreach (Transform child in transform)
-    //    {
-    //        lst.Add(child);
-    //        Debug.Log(child.gameObject.name);
-    //    }
-    //    for (int i = 0; i < lst.Count; i++)
-    //    {
-    //        Destroy(lst[i].gameObject);
-    //    }
-
-
-    //    compared();
-    //}
-
     /// <summary>
     /// 将查找文字与库里的数据对比，然后生成列表
     /// </summary>
@@ -110,7 +88,7 @@ public class Searchlogic : MonoBehaviour
         {
             Debug.Log("list 里有：" + allnameslist[i].name);
 
-            if (inputtext != "" && allnameslist[i].name.Contains(inputtext))
+            if (inputtext != "" && allnameslist[i].name.Contains(inputtext))//inputtext != "" &&
             {
                 Debug.Log("包含" + "。。。。该字符串是：" + allnameslist[i]);
 
@@ -118,27 +96,13 @@ public class Searchlogic : MonoBehaviour
                  Generatenamegrids(allnameslist[i].name);//生成列表
             }
 
-            else if (inputtext != "" && (allnameslist[i].name.Contains(inputtext) == false))
-            {
-                Debug.Log("不包含");
-
-                count = count + 1;
-               // Generatenamegrids("nicht_beinhaten");
-
-            }
             else
             {
-
                 Debug.Log("不包含");
-
             }
 
         }
-        if (count == allnameslist.Count)
-        {
-            Generatenamegrids("Cannot find component, please enter again");
-            count = 0;
-        }
+
     }
 
     /// <summary>
@@ -146,7 +110,7 @@ public class Searchlogic : MonoBehaviour
     /// </summary>
     void Generatenamegrids(string thename)     
     {
-        
+
         //生成record的物体、
         searchbg = Instantiate(gridnameshow, this.transform.position, Quaternion.identity) as GameObject;
         searchbg.transform.SetParent(this.transform);
