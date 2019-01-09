@@ -431,6 +431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 114082417707670078}
   displayValue: {fileID: 114530639540964954}
+  fillArea: {fileID: 1130235986072466}
+  button: {fileID: 114929568146955882}
 --- !u!114 &114911903153062040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -475,7 +477,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
