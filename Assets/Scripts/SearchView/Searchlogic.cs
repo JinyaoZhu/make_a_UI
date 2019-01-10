@@ -7,15 +7,13 @@ public class Searchlogic : MonoBehaviour
 {
     private GameObject gridnameshow;
 
-    public Button searchbutton;
-
+    int count = 0;
 
     /// <summary>
     /// List 里存的是场景里所有的被查找物体的名称和位置
     /// </summary>
     /// 
     List<Transform> allnameslist = new List<Transform>();
-
 
     string inputtext = "";
     GameObject searchbg;//生成的每一行的显示物体
@@ -42,22 +40,16 @@ public class Searchlogic : MonoBehaviour
 
         }
 
-        
-        //初始化查找按钮
-         searchbutton.onClick.AddListener(Findbutton);
-       
-        
-        
-
     }
-
- 
 
     // <summary>
     // 查找方法触发
     // </summary>
-    void Findbutton()
+    void Update()
     {
+        GameObject.Find("SearchView").transform.Find("MainArea/ShowField/Scrollbar").GetComponent<CanvasGroup>().alpha = 0.0f;
+        count = 0;
+
         //Grid的长度随着生成物体个数变化
         this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.gameObject.GetComponent<RectTransform>().sizeDelta.x, 0);
         inputtext = GameObject.Find("SearchView").transform.Find("MainArea/SearchBar/Text").GetComponent<Text>().text;
@@ -88,28 +80,32 @@ public class Searchlogic : MonoBehaviour
         {
             Debug.Log("list 里有：" + allnameslist[i].name);
 
-            if (inputtext != "" && allnameslist[i].name.Contains(inputtext))//inputtext != "" &&
+            if (inputtext != "" && allnameslist[i].name.Contains(inputtext))
             {
                 Debug.Log("包含" + "。。。。该字符串是：" + allnameslist[i]);
 
 
                  Generatenamegrids(allnameslist[i].name);//生成列表
             }
-
-            else
+            else if(inputtext != "" && (allnameslist[i].name.Contains(inputtext) == false))
             {
+                count = count + 1;
+
                 Debug.Log("不包含");
             }
-
+    
+        }
+        if (count == allnameslist.Count)
+        {
+            Generatenamegrids("cannot find component,please enter again!");
         }
 
     }
 
-    /// <summary>
-    /// 生成整个gird子物体
-    /// </summary>
+ 
     void Generatenamegrids(string thename)     
     {
+        GameObject.Find("SearchView").transform.Find("MainArea/ShowField/Scrollbar").GetComponent<CanvasGroup>().alpha = 0.5f;
 
         //生成record的物体、
         searchbg = Instantiate(gridnameshow, this.transform.position, Quaternion.identity) as GameObject;
