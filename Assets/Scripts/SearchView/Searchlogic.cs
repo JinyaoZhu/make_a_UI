@@ -25,7 +25,7 @@ public class Searchlogic : MonoBehaviour
         gridnameshow = Resources.Load(gridpath, typeof(GameObject)) as GameObject;//加载生成的子物体
 
         //找到场景中所有的目标物体，然后添加到list里
-        GameObject go = GameObject.Find("Tfather");
+        GameObject go = GameObject.Find("library");
         if (go != null)
         {
             //找到场景中所有的目标物体，然后添加到list里
@@ -36,6 +36,9 @@ public class Searchlogic : MonoBehaviour
                 allnameslist.Add(child);
 
                 Debug.Log(child.gameObject.name);
+
+                //显示list中的数据
+
             }
 
         }
@@ -75,14 +78,25 @@ public class Searchlogic : MonoBehaviour
     /// </summary>
     void compared()
     {
-
+        if (inputtext == "")
+        {
+            for (int j = 0; j < allnameslist.Count; j++)
+            {
+                Generatenamegrids(allnameslist[j].name);
+            }
+        }
         for (int i = 0; i < allnameslist.Count; i++)
         {
-            Debug.Log("list 里有：" + allnameslist[i].name);
+            
+
+            Debug.Log("list ：" + allnameslist[i].name);
+
+            //强制大写转换
+            inputtext = inputtext.ToString().ToUpper();
 
             if (inputtext != "" && allnameslist[i].name.Contains(inputtext))
             {
-                Debug.Log("包含" + "。。。。该字符串是：" + allnameslist[i]);
+                Debug.Log("include" + "String：" + allnameslist[i]);
 
 
                  Generatenamegrids(allnameslist[i].name);//生成列表
@@ -91,13 +105,13 @@ public class Searchlogic : MonoBehaviour
             {
                 count = count + 1;
 
-                Debug.Log("不包含");
+                Debug.Log("not include");
             }
     
         }
         if (count == allnameslist.Count)
         {
-            Generatenamegrids("cannot find component,please enter again!");
+            Generatenamegrids("Cannot find component!");
         }
 
     }
