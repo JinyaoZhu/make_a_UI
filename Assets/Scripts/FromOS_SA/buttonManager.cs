@@ -112,6 +112,7 @@ public class buttonManager : MonoBehaviour
                             // If so: save the new volume and preferred position of the button
                             maxElementVolumeToDate = elementVolume;
                             buttonPosition = hitInfo.transform.position;
+                            Debug.Log(buttonPosition);
                             buttonRotation = Quaternion.LookRotation(processObjectElement.position.normalized);
                         }
                     }
