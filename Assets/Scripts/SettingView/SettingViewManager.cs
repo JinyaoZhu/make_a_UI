@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class SettingViewManager : MonoBehaviour {
 
-    public GameObject displayArea;
-
     public Button loginButton;
     public Button serverButton;
     public Button generalButton;
@@ -29,7 +27,7 @@ public class SettingViewManager : MonoBehaviour {
     Animator global_animator;
 
     void Start () {
-        global_animator = displayArea.GetComponent<Animator> ();
+        global_animator = GameObject.Find("DisplayArea").GetComponent<Animator>();
 
         loginButton.onClick.AddListener(loginContentClicked);
         serverButton.onClick.AddListener(serverContentClicked);

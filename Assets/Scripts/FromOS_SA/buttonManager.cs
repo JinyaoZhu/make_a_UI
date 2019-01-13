@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class buttonManager : MonoBehaviour
 {
+    private Animator displayAreaAnimator; // we need this for entering the component detail view
+
     // Database holding all the information we could ever need
     private Database database;
     // skript, holding methods which updates the gui and handles button callbacks
@@ -30,6 +32,7 @@ public class buttonManager : MonoBehaviour
     // Use this for initialization. Only called once per script 
     void Start ()
     {
+        displayAreaAnimator = GameObject.Find("DisplayArea").GetComponent<Animator>();
         // Get ref to database
         database = GameObject.Find("Database").GetComponent<Database>();
         // get ref to guiUpdate
@@ -64,7 +67,7 @@ public class buttonManager : MonoBehaviour
             GameObject newButton = Instantiate(ButtonPrefab, moduleTransform.parent.transform, false);
             newButton.transform.name = moduleProcessObject.name;
             newButton.GetComponent<Canvas>().enabled = false;
-            // newButton.GetComponentInChildren<Button>().onClick.AddListener(() => guiUpdateSkript.pinButtonToPriority(newButton.transform.name));
+            newButton.GetComponentInChildren<Button>().onClick.AddListener(() => { displayAreaAnimator.SetTrigger("EnterDetailView"); });
             moduleButtons.Add(newButton.GetComponent<Canvas>());
         }
         // We now have everything that we need: the module transform, a list of all process objects in the model and a list of all buttons for those process objects.
@@ -82,7 +85,7 @@ public class buttonManager : MonoBehaviour
             bool partOfProcessObjectVisible = false;
             // Local variables for saving the position and rotation of the button (for later use, if necessary)
             Vector3 buttonPosition = Vector3.zero;
-            Quaternion buttonRotation = new Quaternion(0f,0f,0f,1.0f);
+            Quaternion buttonRotation = new Quaternion(0f,0f,0f,0f);
             // The maximum volume of a part of the process Object
             float maxElementVolumeToDate = 0;
 
@@ -112,7 +115,6 @@ public class buttonManager : MonoBehaviour
                             // If so: save the new volume and preferred position of the button
                             maxElementVolumeToDate = elementVolume;
                             buttonPosition = hitInfo.transform.position;
-                            Debug.Log(buttonPosition);
                             buttonRotation = Quaternion.LookRotation(processObjectElement.position.normalized);
                         }
                     }

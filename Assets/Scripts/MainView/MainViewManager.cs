@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MainViewManager : MonoBehaviour {
 
-	public GameObject displayArea;
 	public Button settingButton;
 	public Button searchButton;
 	public Button plantViewButton;
@@ -17,7 +16,7 @@ public class MainViewManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		global_animator = displayArea.GetComponent<Animator> ();
+		global_animator = GameObject.Find("DisplayArea").GetComponent<Animator> ();
 		settingButton.onClick.AddListener (onSettingClick);
 		searchButton.onClick.AddListener (onSearchClick);
 		plantViewButton.onClick.AddListener (onPlantClick);

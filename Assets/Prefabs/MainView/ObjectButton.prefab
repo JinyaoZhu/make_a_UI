@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 222487156615276790}
   - component: {fileID: 114531752118177210}
   - component: {fileID: 114883735432795488}
-  - component: {fileID: 114586909334951490}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -241,18 +240,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "V001\n\n     "
---- !u!114 &114586909334951490
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201300342606710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8119a3f40c393ec46bda0fff41a7b255, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayArea: {fileID: 0}
 --- !u!114 &114662849503745414
 MonoBehaviour:
   m_ObjectHideFlags: 1
