@@ -26,6 +26,7 @@ public class Searchlogic : MonoBehaviour
 
         //找到场景中所有的目标物体，然后添加到list里
         GameObject go = GameObject.Find("library");
+
         if (go != null)
         {
             //找到场景中所有的目标物体，然后添加到list里
@@ -42,6 +43,8 @@ public class Searchlogic : MonoBehaviour
             }
 
         }
+
+
 
     }
 
