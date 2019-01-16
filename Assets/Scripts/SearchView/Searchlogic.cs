@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Searchlogic : MonoBehaviour
 {
@@ -20,13 +21,15 @@ public class Searchlogic : MonoBehaviour
     string inputtext = "";
     //GameObject searchbg;//生成的每一行的显示物体
     GameObject searchbg;
+    GameObject sea;
     // Use this for initialization
     void Start()
     {
+
         string gridpath = "gridcontentbtn";//生成列表的路径
         gridnameshow = Resources.Load(gridpath, typeof(GameObject)) as GameObject;//加载生成的子物体
 
-        //找到场景中所有的目标物体，然后添加到list里
+    //找到场景中所有的目标物体，然后添加到list里
         GameObject go = GameObject.Find("library");
 
         if (go != null)
@@ -43,11 +46,12 @@ public class Searchlogic : MonoBehaviour
                 //显示list中的数据
 
             }
-
         }
+    }
 
-
-
+    void Btn_Test()
+    {
+        Debug.Log("这是一个按钮点击事件！哈哈");
     }
 
     // <summary>
@@ -131,14 +135,20 @@ public class Searchlogic : MonoBehaviour
         // searchbg.transform.SetParent(this.transform,false);
         // searchbg.transform.SetAsLastSibling();
         // searchbg.transform.localScale = new Vector3(1, 1, 1);
+        
         searchbg = Instantiate(gridnameshow, this.transform.position, Quaternion.identity) as GameObject;
-        searchbg.transform.Find("positiontext").GetComponent<Text>().text = thename;
+        searchbg.transform.Find("Button/positiontext").GetComponent<Text>().text = thename;
         if (searchbg != null)
         {
-            searchbg.transform.SetParent(this.transform, false);
+            searchbg.transform.SetParent(this.transform);
             searchbg.transform.localScale = new Vector3(1, 1, 1);
          }
          Debug.Log(123);
+
+
+        gridcontentbtn = searchbg.transform.Find("Button").GetComponent<Button>();
+        gridcontentbtn.onClick.AddListener(Btn_Test);
+
 
         //本grid长度加60
         this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.gameObject.GetComponent<RectTransform>().sizeDelta.x, this.gameObject.GetComponent<RectTransform>().sizeDelta.y + this.GetComponent<GridLayoutGroup>().cellSize.y + this.GetComponent<GridLayoutGroup>().spacing.y);
