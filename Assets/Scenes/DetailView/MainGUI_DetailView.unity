@@ -868,18 +868,18 @@ MonoBehaviour:
   _foundMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerFoundEvent, Assembly-CSharp, Version=1.0.2.32297, Culture=neutral,
+    m_TypeName: Kudan.AR.MarkerFoundEvent, Assembly-CSharp, Version=1.0.2.458, Culture=neutral,
       PublicKeyToken=null
   _lostMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerLostEvent, Assembly-CSharp, Version=1.0.2.32297, Culture=neutral,
+    m_TypeName: Kudan.AR.MarkerLostEvent, Assembly-CSharp, Version=1.0.2.458, Culture=neutral,
       PublicKeyToken=null
   _updateMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerUpdateEvent, Assembly-CSharp, Version=1.0.2.32297,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: Kudan.AR.MarkerUpdateEvent, Assembly-CSharp, Version=1.0.2.458, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &61813161
 Transform:
   m_ObjectHideFlags: 0
@@ -1632,6 +1632,7 @@ RectTransform:
   m_Children:
   - {fileID: 1430363434}
   - {fileID: 1435317664}
+  - {fileID: 844246260}
   m_Father: {fileID: 1890084016}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3919,7 +3920,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1685353064}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9999997
+  m_Size: 0.9999998
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5241,10 +5242,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1651248527443744, guid: 104ef54b57370ac4db80b1626388331c, type: 2}
-      propertyPath: m_Name
-      value: PowerSlider
       objectReference: {fileID: 0}
     - target: {fileID: 224547189074953628, guid: 104ef54b57370ac4db80b1626388331c,
         type: 2}
@@ -7596,6 +7593,40 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 833478237}
   m_CullTransparentMesh: 0
+--- !u!1 &844246259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 844246260}
+  m_Layer: 5
+  m_Name: Database
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &844246260
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 844246259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1086197839}
+  m_Father: {fileID: 172811891}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &852148798
 GameObject:
   m_ObjectHideFlags: 0
@@ -8549,8 +8580,8 @@ MonoBehaviour:
   searchButton: {fileID: 1110210615}
   plantViewButton: {fileID: 610991393}
   objectButton1: {fileID: 1361518822}
-  objectButton2: {fileID: 1361518822}
-  objectButton3: {fileID: 1361518822}
+  objectButton2: {fileID: 244894359}
+  objectButton3: {fileID: 244894359}
 --- !u!222 &966902174
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9319,6 +9350,52 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1033466682}
   m_CullTransparentMesh: 0
+--- !u!1 &1086197838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1086197839}
+  - component: {fileID: 1086197840}
+  m_Layer: 5
+  m_Name: Server
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1086197839
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1086197838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 844246260}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1086197840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1086197838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82b82d0e51a51e4480e33be9fe7d100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isServerInit: 0
 --- !u!1 &1088411914
 GameObject:
   m_ObjectHideFlags: 0
@@ -13998,18 +14075,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1361518823}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: f5e50f0070e2465479c1d8080bb6e8db, type: 3}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1361518823
@@ -19719,10 +19785,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1264545049606328, guid: 54d2170b48664a0409e5e5301288fa76, type: 2}
-      propertyPath: m_Name
-      value: SettingSlider
-      objectReference: {fileID: 0}
     - target: {fileID: 224246610666113952, guid: 54d2170b48664a0409e5e5301288fa76,
         type: 2}
       propertyPath: m_AnchorMax.y
@@ -19732,16 +19794,6 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114242357979326552, guid: 54d2170b48664a0409e5e5301288fa76,
-        type: 2}
-      propertyPath: m_FontData.m_VerticalOverflow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114242357979326552, guid: 54d2170b48664a0409e5e5301288fa76,
-        type: 2}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54d2170b48664a0409e5e5301288fa76, type: 2}
@@ -20022,7 +20074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05, y: 0.05}
   m_AnchorMax: {x: 0.95, y: 0.9}
-  m_AnchoredPosition: {x: 0, y: 13.016961}
+  m_AnchoredPosition: {x: 0, y: 13.017054}
   m_SizeDelta: {x: 0, y: 26.426876}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1854205629

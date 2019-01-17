@@ -116,8 +116,8 @@ public class PlotGraph : MonoBehaviour
         // at lease one bar is active
         infoText.gameObject.SetActive(false);
 
-        float value1 = bar1.GetComponent<ValueBar>().GetCurrentValue();
-        float value2 = bar2.GetComponent<ValueBar>().GetCurrentValue();
+        float value1 = bar1.GetComponent<ValueBar>().GetValue();
+        float value2 = bar2.GetComponent<ValueBar>().GetValue();
 
         if (dataXIdx == xMaximum) {
 

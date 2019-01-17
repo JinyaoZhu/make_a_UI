@@ -15,11 +15,34 @@ public class PowerSlider : MonoBehaviour
     private bool is_active = false;
     private bool is_button_pressed;
     private float last_slider_value;
+    private bool power_state;
 
     // set slider active state
     public void SetActive(bool state)
     {
         is_active = state;
+    }
+
+    public void SetPowerState(bool state) {
+        if (state)
+        {
+            slider.value = 1.0f;
+            text.text = "POWER IS ON";
+            power_state = true;
+            powerButton.GetComponent<Image>().color = new Color(0.0f, 0.9f, 0.0f, 0.8f);
+        }
+        else {
+            slider.value = 0.0f;
+            text.text = "SWAP TO POWER ON";
+            power_state = false;
+            powerButton.GetComponent<Image>().color = new Color(0.9f, 0.0f, 0.0f, 0.8f);
+        }
+
+        last_slider_value = slider.value;
+    }
+
+    public bool GetPowerState() {
+        return power_state;
     }
 
     // Use this for initialization
@@ -64,6 +87,7 @@ public class PowerSlider : MonoBehaviour
             {
                 slider.value = 1.0f;
                 text.text = "POWER IS ON";
+                power_state = true;
                 powerButton.GetComponent<Image>().color = new Color(0.0f, 0.9f, 0.0f, 0.8f);
             }
 
@@ -71,6 +95,7 @@ public class PowerSlider : MonoBehaviour
             {
                 slider.value = 0.0f;
                 text.text = "SWAP TO POWER ON";
+                power_state = false;
                 powerButton.GetComponent<Image>().color = new Color(0.9f, 0.0f, 0.0f, 0.8f);
             }
         }

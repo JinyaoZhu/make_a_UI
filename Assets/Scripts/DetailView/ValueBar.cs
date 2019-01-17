@@ -15,7 +15,7 @@ public class ValueBar : MonoBehaviour {
     private bool is_active;
 
     // get current value of the bar
-    public float GetCurrentValue() {
+    public float GetValue() {
         return slider.value;
     }
 
@@ -55,15 +55,15 @@ public class ValueBar : MonoBehaviour {
     }
 
     // Update is called once per frame
-    float delta = 0.3f;
+    //float delta = 0.3f;
     void Update () {
 
         if (is_active)
         {
-            slider.value += delta;
+            //slider.value += delta;
 
-            if (slider.value >= slider.maxValue) delta = -delta;
-            if (slider.value <= slider.minValue) delta = -delta;
+            //if (slider.value >= slider.maxValue) delta = -delta;
+            //if (slider.value <= slider.minValue) delta = -delta;
 
             UpdateValueBar();
 

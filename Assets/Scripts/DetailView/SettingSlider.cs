@@ -29,6 +29,14 @@ public class SettingSlider : MonoBehaviour
         text_unit = text;
     }
 
+    public void SetValue(float value) {
+        slider.value = value;
+    }
+
+    public float GetValue() {
+        return slider.value;
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -45,6 +53,7 @@ public class SettingSlider : MonoBehaviour
         }
         else {
             slider.interactable = false;
+            slider.value = slider.minValue;
             button.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1);
         }
 

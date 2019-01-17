@@ -21,9 +21,9 @@ public class MainViewManager : MonoBehaviour {
 		searchButton.onClick.AddListener (onSearchClick);
 		plantViewButton.onClick.AddListener (onPlantClick);
 
-		objectButton1.onClick.AddListener (onObjectClick);
-		objectButton2.onClick.AddListener (onObjectClick);
-		objectButton3.onClick.AddListener (onObjectClick);
+		objectButton1.onClick.AddListener (LoadTank1);
+		objectButton2.onClick.AddListener (LoadTank2);
+		objectButton3.onClick.AddListener (LoadTank2);
 	}
 
 	// Update is called once per frame
@@ -39,11 +39,21 @@ public class MainViewManager : MonoBehaviour {
 		global_animator.SetTrigger ("EnterSearchView");
 	}
 
-	void onObjectClick () {
-		global_animator.SetTrigger ("EnterDetailView");
+    void onPlantClick()
+    {
+        global_animator.SetTrigger("EnterPlantView");
+    }
+
+    void LoadTank1 () {
+        GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Tank1");
+        global_animator.SetTrigger ("EnterDetailView");
 	}
 
-	void onPlantClick () {
-		global_animator.SetTrigger ("EnterPlantView");
-	}
+    void LoadTank2()
+    {
+        GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Tank2");
+        global_animator.SetTrigger("EnterDetailView");
+    }
+
+
 }

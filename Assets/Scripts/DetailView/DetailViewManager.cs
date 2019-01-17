@@ -9,148 +9,132 @@ public class DetailViewManager : MonoBehaviour {
 
 	Animator global_animator;
 
-	// Use this for initialization
-	void Start () {
+    // all elements in panel
+    private FlatButton[] buttons = new FlatButton[4];
+    private ValueBar[] bars = new ValueBar[2];
+    private SettingSlider slider;
+    private PowerSlider power;
+    private ModelHeader header;
+
+    // server that update and save the component data
+    private Server server;
+
+    private Dictionary<string, Component> components = new Dictionary<string, Component>();
+
+    // current component in the panel
+    private string currentComponentName;
+    private string lastComponentName = "";
+
+    public void SetCurrentComponent(string name) {
+        currentComponentName = name;
+    }
+
+    // Use this for initialization
+    void Start()
+    {
         global_animator = GameObject.Find("DisplayArea").GetComponent<Animator>();
         returnButton.onClick.AddListener(OnReturnClick);
-        LoadComponent("Tank1");
+
+        buttons[0] = transform.Find("Content/Buttons/Upper/Row1/Button1").GetComponent<FlatButton>();
+        buttons[1] = transform.Find("Content/Buttons/Upper/Row1/Button2").GetComponent<FlatButton>();
+        buttons[2] = transform.Find("Content/Buttons/Upper/Row2/Button3").GetComponent<FlatButton>();
+        buttons[3] = transform.Find("Content/Buttons/Upper/Row2/Button4").GetComponent<FlatButton>();
+        bars[0] = transform.Find("Content/Graphics/Upper/Bars/ValueBar1").GetComponent<ValueBar>();
+        bars[1] = transform.Find("Content/Graphics/Upper/Bars/ValueBar2").GetComponent<ValueBar>();
+        slider = transform.Find("Content/Buttons/Lower/SettingSlider").GetComponent<SettingSlider>();
+        power = transform.Find("Content/Buttons/Lower/PowerSlider").GetComponent<PowerSlider>();
+        header = transform.Find("Content/Graphics/Upper/Model/Info").GetComponent<ModelHeader>();
+
+        server = transform.Find("Database/Server").GetComponent<Server>();
+
+        currentComponentName = "";
+
+        components.Add("Tank1", server.Tank1);
+        components.Add("Tank2", server.Tank2);
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
+
+        // Update is called once per frame
+    void Update () {
+
+        if (currentComponentName == "") return;
+
+        if (currentComponentName != lastComponentName) {
+            InitPanel(components[currentComponentName]);
+        }
+
+        lastComponentName = currentComponentName;
+
+        UpdatePanel(components[currentComponentName]);
+
+        UpdateComponent(components[currentComponentName]);
     }
+
+    // update component according to the current panel settings
+    private void UpdateComponent(Component component)
+    {
+        component.SetValueBars(bars[0].GetValue(),bars[1].GetValue());
+        component.SetPowerState(power.GetPowerState());
+        component.SetSettingBar(slider.GetValue());
+        bool[] buttons_state = new bool[buttons.Length];
+        int i = 0;
+        foreach(FlatButton button in buttons) { 
+            buttons_state[i] = button.GetButtonState();
+            i++;
+        }
+        component.SetButtonsState(buttons_state);
+    }
+
+
+    // initialize panel with component data
+    private void InitPanel(Component component) {
+        int i;
+        // set header
+        header.SetName(component.componentName);
+        header.SetStatus(component.status);
+
+        // set buttons
+        i = 0;
+        foreach (FlatButton button in buttons) {
+            button.SetButtonText(component.buttonsName[i]);
+            button.SetButtonState(component.buttonsState[i]);
+            button.SetActive(component.buttonsIsActive[i]);
+            i++;
+        }
+
+        // set value bar        
+        i = 0;
+        foreach (ValueBar bar in bars) {
+            bar.SetName(component.valueBarsName[i]);
+            bar.SetUnit(component.valueBarsUnit[i]);
+            bar.SetValue(component.valueBarsValue[i]);
+            bar.SetMaxValue(component.valueBarsMaxValue[i]);
+            bar.SetMinValue(component.valueBarsMinValue[i]);
+            bar.SetActive(component.valueBarsIsActive[i]);
+            i++;
+        }
+
+        // setting slider
+        slider.SetHead(component.settingBarName);
+        slider.SetUnit(component.settingBarUnit);
+        slider.SetValue(component.settingBarValue);
+        slider.SetActive(component.settingBarIsActive);
+
+        // power slider
+        power.SetPowerState(component.powerState);
+        power.SetActive(component.powerIsActive);
+    }
+    // update panel with component data
+    private void UpdatePanel(Component component) {
+        int i = 0;
+        foreach (ValueBar bar in bars)
+        {
+            bar.SetValue(component.valueBarsValue[i]);
+            i++;
+        }
+    }
+
 
 	void OnReturnClick(){
 		global_animator.SetTrigger("ExitDetailView");
 	}
-
-    public void LoadComponent(string name)
-    {
-        switch (name) {
-            case "Tank1":
-                LoadTank1();
-                break;
-            case "Tank2":
-                LoadTank2();
-                break;
-            default: break;
-        }
-    }
-
-    private void LoadTank2() {
-        string my_name = "Tank B";
-
-        FlatButton button1 = transform.Find("Content/Buttons/Upper/Row1/Button1").GetComponent<FlatButton>();
-        FlatButton button2 = transform.Find("Content/Buttons/Upper/Row1/Button2").GetComponent<FlatButton>();
-        FlatButton button3 = transform.Find("Content/Buttons/Upper/Row2/Button3").GetComponent<FlatButton>();
-        FlatButton button4 = transform.Find("Content/Buttons/Upper/Row2/Button4").GetComponent<FlatButton>();
-        ValueBar bar1 = transform.Find("Content/Graphics/Upper/Bars/ValueBar1").GetComponent<ValueBar>();
-        ValueBar bar2 = transform.Find("Content/Graphics/Upper/Bars/ValueBar2").GetComponent<ValueBar>();
-        SettingSlider slider = transform.Find("Content/Buttons/Lower/SettingSlider").GetComponent<SettingSlider>();
-        PowerSlider power = transform.Find("Content/Buttons/Lower/PowerSlider").GetComponent<PowerSlider>();
-        ModelHeader header = transform.Find("Content/Graphics/Upper/Model/Info").GetComponent<ModelHeader>();
-
-        // set header
-        header.SetName(my_name);
-        header.SetStatus("normal");
-
-        // set buttons        
-        button1.SetButtonText("F1");
-        button1.SetButtonState(true);
-        button1.SetActive(true);
-
-        button2.SetButtonText("F2");
-        button2.SetButtonState(false);
-        button2.SetActive(true);
-
-        button3.SetButtonText("NULL");
-        button3.SetButtonState(false);
-        button3.SetActive(false);
-
-        button4.SetButtonText("NULL");
-        button4.SetButtonState(false);
-        button4.SetActive(false);
-
-        // set value bar        
-        bar1.SetName("T1");
-        bar1.SetUnit("L");
-        bar1.SetValue(50);
-        bar1.SetMaxValue(100);
-        bar1.SetMinValue(0);
-        bar1.SetActive(true);
-
-        bar2.SetName("T2");
-        bar2.SetUnit("L");
-        bar2.SetValue(10);
-        bar2.SetMaxValue(50);
-        bar2.SetMinValue(0);
-        bar2.SetActive(true);
-
-        // setting slider
-        slider.SetHead("NULL");
-        slider.SetUnit("NULL");
-        slider.SetActive(false);
-
-        // power slider
-        power.SetActive(true);
-    }
-
-    private void LoadTank1()
-    {
-        string my_name = "Tank A";
-        FlatButton button1 = transform.Find("Content/Buttons/Upper/Row1/Button1").GetComponent<FlatButton>();
-        FlatButton button2 = transform.Find("Content/Buttons/Upper/Row1/Button2").GetComponent<FlatButton>();
-        FlatButton button3 = transform.Find("Content/Buttons/Upper/Row2/Button3").GetComponent<FlatButton>();
-        FlatButton button4 = transform.Find("Content/Buttons/Upper/Row2/Button4").GetComponent<FlatButton>();
-        ValueBar bar1 = transform.Find("Content/Graphics/Upper/Bars/ValueBar1").GetComponent<ValueBar>();
-        ValueBar bar2 = transform.Find("Content/Graphics/Upper/Bars/ValueBar2").GetComponent<ValueBar>();
-        SettingSlider slider = transform.Find("Content/Buttons/Lower/SettingSlider").GetComponent<SettingSlider>();
-        PowerSlider power = transform.Find("Content/Buttons/Lower/PowerSlider").GetComponent<PowerSlider>();
-        ModelHeader header = transform.Find("Content/Graphics/Upper/Model/Info").GetComponent<ModelHeader>();
-
-        // set header
-        header.SetName(my_name);
-        header.SetStatus("normal");
-
-        // set buttons        
-        button1.SetButtonText("F1");
-        button1.SetButtonState(true);
-        button1.SetActive(true);
-
-        button2.SetButtonText("NULL");
-        button2.SetButtonState(false);
-        button2.SetActive(false);
-
-        button3.SetButtonText("NULL");
-        button3.SetButtonState(false);
-        button3.SetActive(false);
-
-        button4.SetButtonText("NULL");
-        button4.SetButtonState(false);
-        button4.SetActive(false);
-
-        // set value bar        
-        bar1.SetName("T1");
-        bar1.SetUnit("L");
-        bar1.SetValue(50);
-        bar1.SetMaxValue(100);
-        bar1.SetMinValue(0);
-        bar1.SetActive(true);
-
-        bar2.SetName("T2");
-        bar2.SetUnit("L");
-        bar2.SetValue(10);
-        bar2.SetMaxValue(50);
-        bar2.SetMinValue(0);
-        bar2.SetActive(false);
-
-        // setting slider
-        slider.SetHead("NULL");
-        slider.SetUnit("NULL");
-        slider.SetActive(false);
-
-        // power slider
-        power.SetActive(true);
-    }
 }
