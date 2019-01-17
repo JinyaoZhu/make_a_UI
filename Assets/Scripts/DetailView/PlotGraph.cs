@@ -10,6 +10,7 @@ public class PlotGraph : MonoBehaviour
 
     public GameObject bar1;
     public GameObject bar2;
+    public Text infoText;
     public float yMaximum;
     
 
@@ -30,13 +31,11 @@ public class PlotGraph : MonoBehaviour
     float time_sum = 0;
     void Update()
     {
-        value1 = bar1.GetComponent<ValueBar>().currentvalue;
-        value2 = bar2.GetComponent<ValueBar>().currentvalue;
         float dt = Time.deltaTime;
         time_sum += dt;
         if (time_sum >= 0.5f)
         {
-            AddDataAndShow(value1, value2);
+            AddDataAndShow(bar1, bar2);
             time_sum = 0;
         }
     }
@@ -45,7 +44,7 @@ public class PlotGraph : MonoBehaviour
     void Start()
     {
         graphContainer = transform.Find("GraphContainer").GetComponent<RectTransform>();
-
+        
         labelTemplateX = graphContainer.Find("LabelTemplateX").GetComponent<RectTransform>();
         labelTemplateY = graphContainer.Find("LabelTemplateY").GetComponent<RectTransform>();
         dashTemplateX = graphContainer.Find("DashTemplateX").GetComponent<RectTransform>();
@@ -105,17 +104,24 @@ public class PlotGraph : MonoBehaviour
     Vector2 lastData1Pos = new Vector2(-1,-1);
     Vector2 lastData2Pos = new Vector2(-1, -1);
 
-    private void AddDataAndShow(float value1, float value2)
+    private void AddDataAndShow(GameObject bar1, GameObject bar2)
     {
-        if (dataXIdx == xMaximum) {
-            for (int i = 0; i < xMaximum; i++) {
-                GameObject temp;
-                temp = GameObject.Find("circle_1_" + i.ToString()); if (temp) Destroy(temp);
-                temp = GameObject.Find("circle_2_" + i.ToString()); if (temp) Destroy(temp);
-                temp = GameObject.Find("dotConnection_1_" + i.ToString()); if (temp) Destroy(temp);
-                temp = GameObject.Find("dotConnection_2_" + i.ToString()); if (temp) Destroy(temp);
-            }
+        // if all bars are inactive, dont need to update, and show "EMPTY"
+        if (!bar1.GetComponent<ValueBar>().IsActive() && !bar2.GetComponent<ValueBar>().IsActive()) {
+            infoText.gameObject.SetActive(true);
+            ClearGraph();
+            return;
+        }
 
+        // at lease one bar is active
+        infoText.gameObject.SetActive(false);
+
+        float value1 = bar1.GetComponent<ValueBar>().GetCurrentValue();
+        float value2 = bar2.GetComponent<ValueBar>().GetCurrentValue();
+
+        if (dataXIdx == xMaximum) {
+
+            ClearGraph();
             dataXIdx = 0;
             lastData1Pos = new Vector2(-1, -1);
             lastData2Pos = new Vector2(-1, -1);
@@ -125,32 +131,53 @@ public class PlotGraph : MonoBehaviour
         float graphWidth = graphContainer.sizeDelta.x;
         float xSize = graphWidth / xMaximum;
         float xPosition = dataXIdx * xSize;
+        float yPosition;
+        Vector2 dataPos;
 
         // channel 1
-        float yPosition = value1 / yMaximum * graphHeight;
-        Vector2 dataPos = new Vector2(xPosition, yPosition);
-        
-        if (lastData1Pos != new Vector2(-1,-1))
+        if (bar1.GetComponent<ValueBar>().IsActive())
         {
-            CreateDotConnetion(lastData1Pos, dataPos, dataXIdx,1);
+            yPosition = value1 / yMaximum * graphHeight;
+            dataPos = new Vector2(xPosition, yPosition);
+
+            if (lastData1Pos != new Vector2(-1, -1))
+            {
+                CreateDotConnetion(lastData1Pos, dataPos, dataXIdx, 1);
+            }
+            CreateCircle(dataPos, dataXIdx, bar1.transform.Find("Slider/Mask/Fill Area/Fill").GetComponent<Image>().color, 1);
+            lastData1Pos = new Vector2(xPosition, yPosition);
         }
-        CreateCircle(dataPos, dataXIdx, Color.white, 1);
-        lastData1Pos = new Vector2(xPosition, yPosition);
 
         // channel 2
-        yPosition = value2 / yMaximum * graphHeight;
-        dataPos = new Vector2(xPosition, yPosition);
-       
-        if (lastData2Pos != new Vector2(-1, -1))
+        if (bar2.GetComponent<ValueBar>().IsActive())
         {
-            CreateDotConnetion(lastData2Pos, dataPos, dataXIdx, 2);
+            yPosition = value2 / yMaximum * graphHeight;
+            dataPos = new Vector2(xPosition, yPosition);
+
+            if (lastData2Pos != new Vector2(-1, -1))
+            {
+                CreateDotConnetion(lastData2Pos, dataPos, dataXIdx, 2);
+            }
+            CreateCircle(dataPos, dataXIdx, bar2.transform.Find("Slider/Mask/Fill Area/Fill").GetComponent<Image>().color, 2);
+            lastData2Pos = new Vector2(xPosition, yPosition);
         }
-        CreateCircle(dataPos, dataXIdx, Color.blue, 2);
-        lastData2Pos = new Vector2(xPosition, yPosition);
 
         dataXIdx++;
     }
 
+    // clear the screen
+    private void ClearGraph() {
+        for (int i = 0; i < xMaximum; i++)
+        {
+            GameObject temp;
+            temp = GameObject.Find("circle_1_" + i.ToString()); if (temp) Destroy(temp);
+            temp = GameObject.Find("circle_2_" + i.ToString()); if (temp) Destroy(temp);
+            temp = GameObject.Find("dotConnection_1_" + i.ToString()); if (temp) Destroy(temp);
+            temp = GameObject.Find("dotConnection_2_" + i.ToString()); if (temp) Destroy(temp);
+        }
+    }
+
+    // draw line between dot
     private void CreateDotConnetion(Vector2 dotPositionA, Vector2 dotPositionB, int idx, int channel)
     {
         GameObject gameObject = new GameObject("dotConnection_"+channel.ToString()+"_"+idx.ToString(), typeof(Image));
@@ -166,6 +193,7 @@ public class PlotGraph : MonoBehaviour
         rectTransform.localEulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(dir));
     }
 
+    // draw dot
     private GameObject CreateCircle(Vector2 anchoredPosition, int idx, Color color, int channel)
     {
         GameObject gameObject = new GameObject("circle_"+ channel.ToString()+"_"+ idx.ToString(), typeof(Image));

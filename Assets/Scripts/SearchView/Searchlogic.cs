@@ -41,7 +41,7 @@ public class Searchlogic : MonoBehaviour
             {
                 allnameslist.Add(child);
 
-                Debug.Log(child.gameObject.name);
+                //Debug.Log(child.gameObject.name);
 
                 //显示list中的数据
 
@@ -71,7 +71,7 @@ public class Searchlogic : MonoBehaviour
         foreach (Transform child in transform)
         {
             lst.Add(child);
-            Debug.Log(child.gameObject.name);
+            //Debug.Log(child.gameObject.name);
         }
         for (int i = 0; i < lst.Count; i++)
         {
@@ -98,7 +98,7 @@ public class Searchlogic : MonoBehaviour
         {
             
 
-            Debug.Log("list ：" + allnameslist[i].name);
+            //Debug.Log("list ：" + allnameslist[i].name);
 
             //强制大写转换
             inputtext = inputtext.ToString().ToUpper();
@@ -143,7 +143,7 @@ public class Searchlogic : MonoBehaviour
             searchbg.transform.SetParent(this.transform);
             searchbg.transform.localScale = new Vector3(1, 1, 1);
          }
-         Debug.Log(123);
+         //Debug.Log(123);
 
 
         gridcontentbtn = searchbg.transform.Find("Button").GetComponent<Button>();
