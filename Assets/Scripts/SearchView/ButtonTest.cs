@@ -60,8 +60,7 @@ public class ButtonTest : MonoBehaviour
     {
 
         count = 0;
-        //Grid的长度随着生成物体个数变化
-        // this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.gameObject.GetComponent<RectTransform>().sizeDelta.x, 0);
+        //Grid的长度随着生成物体个数变
         inputtext_new= GameObject.Find("SearchView").transform.Find("MainArea/SearchBar/Text").GetComponent<Text>().text;
 
 
@@ -79,9 +78,7 @@ public class ButtonTest : MonoBehaviour
 
     void compared()
     {
-        // obj = GameObject.Find("SearchView/MainArea/ShowField/Scroll View/Viewport/Content");
-
-        //obj = GameObject.Find("SearchView").transform.Find("MainArea/ShowField/Scroll View/Viewport").gameObject;
+       
         obj = GameObject.Find("Content");
         if (obj == null)
         {
@@ -103,8 +100,7 @@ public class ButtonTest : MonoBehaviour
         {
             for (int j = 0; j < allnameslist.Count; j++)
             {
-                // showall = false;
-                //showone = true;
+           
                 AddItem(allnameslist[j].name);
             }
         }
@@ -121,8 +117,8 @@ public class ButtonTest : MonoBehaviour
                 {
                     Debug.Log("include" + "String：" + allnameslist[i]);
 
-                    showall = true;
-                    //showone = false;
+                  
+                  
                     AddItem(allnameslist[i].name);//生成列表
                     if (i == allnameslist.Count)
                     {
@@ -157,8 +153,9 @@ public class ButtonTest : MonoBehaviour
        delegate () {
 
            Debug.Log("按下按钮");
-            // RemoveItem(a);
-        }
+           GameObject.Find("SearchView").transform.Find("MainArea/Panel").GetComponent<CanvasGroup>().alpha = 1.0f;
+
+       }
        );
 
         a.GetComponent<Transform>().SetParent(parent.GetComponent<Transform>(), false);
