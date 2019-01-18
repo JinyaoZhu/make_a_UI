@@ -40,7 +40,7 @@ public class SettingSlider : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        displayValue.text = "NULL";
+        displayValue.text = "";
     }
 
     // Update is called once per frame
@@ -54,6 +54,7 @@ public class SettingSlider : MonoBehaviour
         else {
             slider.interactable = false;
             slider.value = slider.minValue;
+            displayValue.text = "";
             button.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1);
         }
 

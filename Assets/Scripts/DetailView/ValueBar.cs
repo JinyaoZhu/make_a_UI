@@ -29,22 +29,23 @@ public class ValueBar : MonoBehaviour {
     }
     // set name of the bar
     public void SetName(string text) {
-        nameText.text = text;
+            nameText.text = text;
     }
     // set unit of the bar value
     public void SetUnit(string text) {
-        barUnit = text;
+            barUnit = text;
     }
     // set max value
     public void SetMaxValue(float value) {
-        slider.maxValue = value;
+            slider.maxValue = value;
     }
     // set min value 
     public void SetMinValue(float value) {
-        slider.minValue = value;
+            slider.minValue = value;
     }
     // set current value
     public void SetValue(float value) {
+        if(is_active) 
         slider.value = value;
     }
 
@@ -55,16 +56,10 @@ public class ValueBar : MonoBehaviour {
     }
 
     // Update is called once per frame
-    //float delta = 0.3f;
     void Update () {
 
         if (is_active)
         {
-            //slider.value += delta;
-
-            //if (slider.value >= slider.maxValue) delta = -delta;
-            //if (slider.value <= slider.minValue) delta = -delta;
-
             UpdateValueBar();
 
             background.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
@@ -75,6 +70,8 @@ public class ValueBar : MonoBehaviour {
             slider.value = 0;
             warningText.gameObject.SetActive(false);
             background.GetComponent<Image>().color = new Color(.5f,.5f,.5f,.8f);
+            valueText.text = "";
+            nameText.text = "";
             valueText.color = new Color(.5f, .5f, .5f, .8f);
             nameText.color = new Color(.5f, .5f, .5f, .8f);
         }

@@ -10,13 +10,13 @@ public class ModelHeader : MonoBehaviour {
 
     // set model name
     public void SetName(string text) {
-        modelName.text = "NAME:" + text;
+        modelName.text = "NAME: " + text;
     }
 
     // set model status
     public void SetStatus(string text)
     {
-        modelStatus.text ="STATUS:"+text;
+        modelStatus.text ="STATUS: "+text;
     }
 
     // Use this for initialization

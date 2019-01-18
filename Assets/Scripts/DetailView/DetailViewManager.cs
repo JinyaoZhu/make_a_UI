@@ -7,7 +7,7 @@ public class DetailViewManager : MonoBehaviour {
 
 	public Button returnButton;
 
-	Animator global_animator;
+    Animator global_animator;
 
     // all elements in panel
     private FlatButton[] buttons = new FlatButton[4];
@@ -15,6 +15,9 @@ public class DetailViewManager : MonoBehaviour {
     private SettingSlider slider;
     private PowerSlider power;
     private ModelHeader header;
+    private PlotGraph plotter;
+    private Camera stage;
+    private GameObject model;
 
     // server that update and save the component data
     private Server server;
@@ -44,6 +47,8 @@ public class DetailViewManager : MonoBehaviour {
         slider = transform.Find("Content/Buttons/Lower/SettingSlider").GetComponent<SettingSlider>();
         power = transform.Find("Content/Buttons/Lower/PowerSlider").GetComponent<PowerSlider>();
         header = transform.Find("Content/Graphics/Upper/Model/Info").GetComponent<ModelHeader>();
+        plotter = transform.Find("Content/Graphics/Lower/Graph").GetComponent<PlotGraph>();
+        stage = transform.Find("Content/Graphics/Upper/Model/Model/Stage").GetComponent<Camera>();
 
         server = transform.Find("Database/Server").GetComponent<Server>();
 
@@ -51,6 +56,7 @@ public class DetailViewManager : MonoBehaviour {
 
         components.Add("Tank1", server.Tank1);
         components.Add("Tank2", server.Tank2);
+        components.Add("Ventile1", server.Ventile1);
     }
 
         // Update is called once per frame
@@ -72,7 +78,6 @@ public class DetailViewManager : MonoBehaviour {
     // update component according to the current panel settings
     private void UpdateComponent(Component component)
     {
-        component.SetValueBars(bars[0].GetValue(),bars[1].GetValue());
         component.SetPowerState(power.GetPowerState());
         component.SetSettingBar(slider.GetValue());
         bool[] buttons_state = new bool[buttons.Length];
@@ -113,6 +118,9 @@ public class DetailViewManager : MonoBehaviour {
             i++;
         }
 
+        // graph title
+        plotter.SetTitle(component.componentName);
+
         // setting slider
         slider.SetHead(component.settingBarName);
         slider.SetUnit(component.settingBarUnit);
@@ -122,14 +130,23 @@ public class DetailViewManager : MonoBehaviour {
         // power slider
         power.SetPowerState(component.powerState);
         power.SetActive(component.powerIsActive);
+
+        // 3d model 
+        if (model)
+        {
+            Destroy(model);
+        }
+        model = Instantiate(component.model, stage.transform, false);
+        model.transform.localPosition = new Vector3(50, 50, 1000);
+        model.SetActive(true);
     }
     // update panel with component data
     private void UpdatePanel(Component component) {
         int i = 0;
         foreach (ValueBar bar in bars)
         {
-            bar.SetValue(component.valueBarsValue[i]);
-            i++;
+              bar.SetValue(component.valueBarsValue[i]);
+           i++;
         }
     }
 

@@ -11,6 +11,7 @@ public class PlotGraph : MonoBehaviour
     public GameObject bar1;
     public GameObject bar2;
     public Text infoText;
+    public Text title_text;
     public float yMaximum;
     
 
@@ -20,12 +21,18 @@ public class PlotGraph : MonoBehaviour
     private RectTransform dashTemplateX;
     private RectTransform dashTemplateY;
 
-    string xLabel = "Hour";
-    string yLabel = "Liter";
+    private string title = " ";
+    private string last_title = " ";
+
+    private string xLabel = "Hour";
+    private string yLabel = "Liter";
 
     private int xMaximum = 24;
-    float value1;
-    float value2;
+
+    // set curret title of the graph
+    public void SetTitle(string text) {
+        title = text;
+    }
 
     // Update is called once per frame
     float time_sum = 0;
@@ -33,15 +40,20 @@ public class PlotGraph : MonoBehaviour
     {
         float dt = Time.deltaTime;
         time_sum += dt;
-        if (time_sum >= 0.5f)
+        if (time_sum >=1.0f)
         {
+            if (last_title != title)
+            {
+                ClearGraph();
+            }
+            last_title = title;
             AddDataAndShow(bar1, bar2);
             time_sum = 0;
         }
     }
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         graphContainer = transform.Find("GraphContainer").GetComponent<RectTransform>();
         
@@ -100,18 +112,20 @@ public class PlotGraph : MonoBehaviour
     }
 
 
-    int dataXIdx = 0;
-    Vector2 lastData1Pos = new Vector2(-1,-1);
-    Vector2 lastData2Pos = new Vector2(-1, -1);
+    private int dataXIdx = 0;
+    private Vector2 lastData1Pos = new Vector2(-1,-1);
+    private Vector2 lastData2Pos = new Vector2(-1, -1);
 
     private void AddDataAndShow(GameObject bar1, GameObject bar2)
     {
         // if all bars are inactive, dont need to update, and show "EMPTY"
         if (!bar1.GetComponent<ValueBar>().IsActive() && !bar2.GetComponent<ValueBar>().IsActive()) {
+            title_text.text = title = "";
             infoText.gameObject.SetActive(true);
             ClearGraph();
             return;
         }
+        title_text.text = title;
 
         // at lease one bar is active
         infoText.gameObject.SetActive(false);
@@ -123,8 +137,6 @@ public class PlotGraph : MonoBehaviour
 
             ClearGraph();
             dataXIdx = 0;
-            lastData1Pos = new Vector2(-1, -1);
-            lastData2Pos = new Vector2(-1, -1);
         }
 
         float graphHeight = graphContainer.sizeDelta.y;
@@ -175,6 +187,8 @@ public class PlotGraph : MonoBehaviour
             temp = GameObject.Find("dotConnection_1_" + i.ToString()); if (temp) Destroy(temp);
             temp = GameObject.Find("dotConnection_2_" + i.ToString()); if (temp) Destroy(temp);
         }
+        lastData1Pos = new Vector2(-1, -1);
+        lastData2Pos = new Vector2(-1, -1);
     }
 
     // draw line between dot

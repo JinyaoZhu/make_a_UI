@@ -23,7 +23,7 @@ public class MainViewManager : MonoBehaviour {
 
 		objectButton1.onClick.AddListener (LoadTank1);
 		objectButton2.onClick.AddListener (LoadTank2);
-		objectButton3.onClick.AddListener (LoadTank2);
+		objectButton3.onClick.AddListener (LoadVentil1);
 	}
 
 	// Update is called once per frame
@@ -55,5 +55,9 @@ public class MainViewManager : MonoBehaviour {
         global_animator.SetTrigger("EnterDetailView");
     }
 
+    void LoadVentil1() {
+        GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Ventile1");
+        global_animator.SetTrigger("EnterDetailView");
+    }
 
 }

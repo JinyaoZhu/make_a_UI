@@ -28,17 +28,14 @@ public class Component : IEquatable<Component>
     public bool powerIsActive;
     public bool powerState;
 
+    public GameObject model;
+
     public void SetButtonsState(bool[] states) {
         int i = 0;
         foreach (bool state in states) {
             buttonsState[i] = states[i];
             i++;
         }
-    }
-
-    public void SetValueBars(float value1, float value2) {
-        valueBarsValue[0] = value1;
-        valueBarsValue[1] = value2;
     }
 
     public void SetSettingBar(float value) {

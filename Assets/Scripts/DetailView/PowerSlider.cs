@@ -64,13 +64,14 @@ public class PowerSlider : MonoBehaviour
         else
         {
             slider.interactable = false;
+            text.text = " ";
             powerButton.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1);
         }
     }
 
     private void UpdateSlider()
     {
-        is_button_pressed = sliderHandle.GetComponent<PowerButtonState>().buttonPressed;
+        is_button_pressed = sliderHandle.GetComponent<SliderButtonState>().buttonPressed;
 
         if (Math.Abs(last_slider_value - slider.value) > 0.5)
             slider.value = last_slider_value;

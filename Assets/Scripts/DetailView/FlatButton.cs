@@ -43,7 +43,7 @@ public class FlatButton : MonoBehaviour
 
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         button.onClick.AddListener(OnButtonClick);
         button.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1.0f);
@@ -60,7 +60,7 @@ public class FlatButton : MonoBehaviour
         {
             button.interactable = false;
             button.GetComponent<Image>().color = new Color(.5f, .5f, .5f, 1.0f);
-            SetButtonText("NULL");
+            SetButtonText(" ");
         }
     }
 
