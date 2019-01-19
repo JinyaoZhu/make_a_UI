@@ -9,6 +9,8 @@ public class SettingViewManager : MonoBehaviour {
     public Button serverButton;
     public Button generalButton;
     public Button logoutButton;
+    public Button feedbackButton;
+    public Button legalButton;
 
     public Button returnButton;
     public Button exitYButton;
@@ -21,8 +23,10 @@ public class SettingViewManager : MonoBehaviour {
     public RectTransform GeneralConent;
     public RectTransform LogoutConfirm;
     public RectTransform ExitConfirm;
-    
-    
+    public RectTransform FeedbackContent;
+    public RectTransform LegalContent;
+
+
 
     Animator global_animator;
 
@@ -33,6 +37,8 @@ public class SettingViewManager : MonoBehaviour {
         serverButton.onClick.AddListener(serverContentClicked);
         generalButton.onClick.AddListener(generalSettingsClicked);
         logoutButton.onClick.AddListener(logoutClicked);
+        feedbackButton.onClick.AddListener(feedbackClicked);
+        legalButton.onClick.AddListener(legalClicked);
 
         returnButton.onClick.AddListener (onReturnClick);
         exitYButton.onClick.AddListener (exitYesClicked);
@@ -46,6 +52,8 @@ public class SettingViewManager : MonoBehaviour {
         LogoutConfirm.gameObject.SetActive (false);
         GeneralConent.gameObject.SetActive (false);
         ExitConfirm.gameObject.SetActive (false);
+        FeedbackContent.gameObject.SetActive(false);
+        LegalContent.gameObject.SetActive(false);
         LoginContent.gameObject.SetActive (true);
     }
 
@@ -54,6 +62,8 @@ public class SettingViewManager : MonoBehaviour {
         LogoutConfirm.gameObject.SetActive (false);
         GeneralConent.gameObject.SetActive (false);
         ExitConfirm.gameObject.SetActive (false);
+        FeedbackContent.gameObject.SetActive(false);
+        LegalContent.gameObject.SetActive(false);
         ServerContent.gameObject.SetActive (true);
 
         // load server settings from Request Objects and put them into gui
@@ -65,6 +75,8 @@ public class SettingViewManager : MonoBehaviour {
         LogoutConfirm.gameObject.SetActive (false);
         LoginContent.gameObject.SetActive (false);
         ExitConfirm.gameObject.SetActive (false);
+        FeedbackContent.gameObject.SetActive(false);
+        LegalContent.gameObject.SetActive(false);
         GeneralConent.gameObject.SetActive (true);
     }
 
@@ -74,9 +86,30 @@ public class SettingViewManager : MonoBehaviour {
         LoginContent.gameObject.SetActive (false);
         ExitConfirm.gameObject.SetActive (false);
         GeneralConent.gameObject.SetActive (false);
+        FeedbackContent.gameObject.SetActive(false);
+        LegalContent.gameObject.SetActive(false);
     }
-
-     void exitNoClicked () {
+    void feedbackClicked()
+    {
+        ServerContent.gameObject.SetActive(false);
+        LogoutConfirm.gameObject.SetActive(false);
+        LoginContent.gameObject.SetActive(false);
+        ExitConfirm.gameObject.SetActive(false);
+        GeneralConent.gameObject.SetActive(false);
+        FeedbackContent.gameObject.SetActive(true);
+        LegalContent.gameObject.SetActive(false);
+    }
+    void legalClicked()
+    {
+        ServerContent.gameObject.SetActive(false);
+        LogoutConfirm.gameObject.SetActive(false);
+        LoginContent.gameObject.SetActive(false);
+        ExitConfirm.gameObject.SetActive(false);
+        GeneralConent.gameObject.SetActive(false);
+        FeedbackContent.gameObject.SetActive(false);
+        LegalContent.gameObject.SetActive(true);
+    }
+    void exitNoClicked () {
         ExitConfirm.gameObject.SetActive (false);
     }
 
@@ -86,6 +119,8 @@ public class SettingViewManager : MonoBehaviour {
         LoginContent.gameObject.SetActive (false);
         GeneralConent.gameObject.SetActive (false);
         LogoutConfirm.gameObject.SetActive (false);
+        FeedbackContent.gameObject.SetActive(false);
+        LegalContent.gameObject.SetActive(false);
 
         global_animator.SetTrigger ("ExitSettingView");
     }
