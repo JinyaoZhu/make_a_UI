@@ -60,9 +60,10 @@ public class ButtonTest : MonoBehaviour
     {
 
         count = 0;
+        
         //Grid的长度随着生成物体个数变
-        inputtext_new= GameObject.Find("SearchView").transform.Find("MainArea/SearchBar/Text").GetComponent<Text>().text;
-
+        inputtext_new = GameObject.Find("SearchView").transform.Find("MainArea/SearchBar/Text").GetComponent<Text>().text;
+   
 
         if (inputtext_alt != inputtext_new)
         {
@@ -98,6 +99,7 @@ public class ButtonTest : MonoBehaviour
 
         if (inputtext_new == "")
         {
+            GameObject.Find("SearchView").transform.Find("MainArea/Panel").GetComponent<CanvasGroup>().alpha = 0f;
             for (int j = 0; j < allnameslist.Count; j++)
             {
            
