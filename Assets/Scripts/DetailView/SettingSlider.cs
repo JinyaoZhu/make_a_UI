@@ -62,7 +62,7 @@ public class SettingSlider : MonoBehaviour
     }
 
     private void UpdateSlider() {
-        displayValue.text = text_head + slider.value + text_unit;
+        displayValue.text = text_head +" "+ slider.value + text_unit;
 
         if (slider.value == slider.minValue)
         {

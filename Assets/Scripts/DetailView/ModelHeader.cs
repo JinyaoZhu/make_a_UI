@@ -16,7 +16,7 @@ public class ModelHeader : MonoBehaviour {
     // set model status
     public void SetStatus(string text)
     {
-        modelStatus.text ="STATUS: "+text;
+        modelStatus.text =text;
     }
 
     // Use this for initialization

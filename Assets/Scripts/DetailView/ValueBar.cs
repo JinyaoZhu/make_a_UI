@@ -63,8 +63,8 @@ public class ValueBar : MonoBehaviour {
             UpdateValueBar();
 
             background.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-            valueText.color = new Color(0,0,0,1);
-            nameText.color = new Color(0,0,0,1);
+            // valueText.color = new Color(1,1,1,1);
+            // nameText.color = new Color(1,1,1,1);
         }
         else {
             slider.value = 0;
@@ -72,8 +72,6 @@ public class ValueBar : MonoBehaviour {
             background.GetComponent<Image>().color = new Color(.5f,.5f,.5f,.8f);
             valueText.text = "";
             nameText.text = "";
-            valueText.color = new Color(.5f, .5f, .5f, .8f);
-            nameText.color = new Color(.5f, .5f, .5f, .8f);
         }
     }
     // update value bar in each loop

@@ -25,7 +25,7 @@ public class FlatButton : MonoBehaviour
     // set button state
     public void SetButtonState(bool state) {
         if (state) {
-            button.GetComponent<Image>().color = new Color(.0f, .5f, 1.0f, 1.0f);
+            button.GetComponent<Image>().color = new Color(.07f, .5f, 1.0f, 1.0f);
             button_state = true;
             loop_counter = 1;
         }
