@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MainGUI.unity
     guid: 63495d46617b58946a36c860dbd4ad22
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DetailView/MainGUI_DetailView.unity
     guid: 442b525f57c58cc4897b8f38233888e8
+  - enabled: 1
+    path: Assets/Scenes/MainView/MainGUI_MainView.unity
+    guid: b538b3fadef93574fa0375647f940e43
   m_configObjects: {}

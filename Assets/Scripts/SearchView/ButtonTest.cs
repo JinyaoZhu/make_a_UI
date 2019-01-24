@@ -23,7 +23,6 @@ public class ButtonTest : MonoBehaviour
     string inputtext_new = "";
     string inputtext_alt = "";
 
-
     void Start()
     {
         parent = GameObject.Find("Content");
@@ -60,11 +59,9 @@ public class ButtonTest : MonoBehaviour
     {
 
         count = 0;
-        
-        //Grid的长度随着生成物体个数变
+    
         inputtext_new = GameObject.Find("SearchView").transform.Find("MainArea/SearchBar/Text").GetComponent<Text>().text;
-   
-
+  
         if (inputtext_alt != inputtext_new)
         {
             inputtext_alt = inputtext_new;
@@ -83,19 +80,16 @@ public class ButtonTest : MonoBehaviour
         obj = GameObject.Find("Content");
         if (obj == null)
         {
-            Debug.Log("找不到");
+            Debug.Log("find no element in library");
         }
         int childs = obj.transform.childCount;
 
-        Debug.Log(childs);
+       // Debug.Log(childs);
 
         for (int i = childs-1;i>=0;i--)
         {
             GameObject.DestroyImmediate(obj.transform.GetChild(i).gameObject);
         }
-
-
-
 
         if (inputtext_new == "")
         {
@@ -110,14 +104,14 @@ public class ButtonTest : MonoBehaviour
 
         for (int i = 0; i < allnameslist.Count; i++)
             {
-                Debug.Log("单元个数" + allnameslist.Count);
+                //Debug.Log("单元个数" + allnameslist.Count);
 
                 //强制大写转换
                 inputtext_new = inputtext_new.ToString().ToUpper();
 
                 if (inputtext_new != "" && allnameslist[i].name.Contains(inputtext_new) )
                 {
-                    Debug.Log("include" + "String：" + allnameslist[i]);
+                    //Debug.Log("include" + "String：" + allnameslist[i]);
 
                   
                   
@@ -131,8 +125,6 @@ public class ButtonTest : MonoBehaviour
                 else if (inputtext_new != "" && (allnameslist[i].name.Contains(inputtext_new) == false) )
                 {
                     count = count + 1;
-                    // showone = false;
-                    Debug.Log("not include");
                 }
 
             }
@@ -155,8 +147,9 @@ public class ButtonTest : MonoBehaviour
        delegate () {
 
            Debug.Log("按下按钮");
-           GameObject.Find("SearchView").transform.Find("MainArea/Panel").GetComponent<CanvasGroup>().alpha = 1.0f;
-
+           GameObject.Find("SearchView").transform.Find("MainArea/Panel").GetComponent<CanvasGroup>().alpha = 1f;
+           Image InfoPanel = GameObject.Find("SearchView").transform.Find("MainArea/Panel").GetComponent<Image>();
+           InfoPanel.SendMessage("changePictrues", inputtext_alt);
        }
        );
 
