@@ -77,7 +77,6 @@ public class ButtonTest : MonoBehaviour
     void compared()
     {
        
-        obj = GameObject.Find("Content");
         if (obj == null)
         {
             Debug.Log("find no element in library");
@@ -139,24 +138,23 @@ public class ButtonTest : MonoBehaviour
     public void AddItem(string Thema)
     {
 
-        GameObject a = Instantiate(item) as GameObject;
+        GameObject a = Instantiate(item);
 
         a.transform.Find("Text").GetComponent<Text>().text = Thema;
 
         a.GetComponent<Button>().GetComponent<Image>().color = Color.black;
         a.GetComponent<Button>().GetComponentInChildren<Text>().color = Color.white;
-
-        a.GetComponent<Button>().onClick.AddListener(
-       delegate () {
-
-           Debug.Log("按下按钮");
+        a.GetComponent<Button>().onClick.AddListener(()=>{
+           Debug.Log("Choose Item");
            GameObject.Find("SearchView").transform.Find("MainArea/Panel").GetComponent<CanvasGroup>().alpha = 1f;
-           Image InfoPanel = GameObject.Find("SearchView").transform.Find("MainArea/Panel").GetComponent<Image>();
-           InfoPanel.SendMessage("changePictrues", inputtext_alt);
-       }
-       );
+            //Image InfoPanel = GameObject.Find("SearchView").transform.Find("MainArea/Panel").GetComponent<Image>();
+            //InfoPanel.SendMessage("changePictrues", inputtext_alt);
+            //Debug.Log("input text:"+ Thema);
+           Panel InfoPanel = GameObject.Find("SearchView/MainArea/Panel").GetComponent<Panel>();
+           InfoPanel.changePictrues(Thema);
+       });
 
-        a.GetComponent<Transform>().SetParent(parent.GetComponent<Transform>(), false);
+        a.GetComponent<Transform>().SetParent(obj.transform, false);
         a.transform.localPosition = new Vector3(itemLocalPos.x, itemLocalPos.y - messages.Count * itemHeight, 0);
         messages.Add(a);
         
@@ -173,9 +171,6 @@ public class ButtonTest : MonoBehaviour
 
         if(comparedIs)
         {
-
-            // obj = GameObject.Find("SearchView").transform.Find("MainArea/Scroll View/Viewport/Content");
-            obj = GameObject.Find("SearchView/MainArea/Scroll View/Viewport/Content");
             foreach (Transform child in obj.transform)
             {
                 GameObject.Destroy(child.gameObject);

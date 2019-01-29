@@ -8,77 +8,61 @@ public class Panel : MonoBehaviour {
     Animator global_animator;
     string inputtext;
     public Button btn;
-    Image picture_v;
-    Image picture_t;
-    Image picture_p;
+    public Image component_img;
 
     // Use this for initialization
     void Start ()
     {
-      
-    }
-	
-	// Update is called once per frame
-	public void changePictrues (string searchText ) {
-
-        inputtext = searchText;
-
-        
-
-       
-        // update picture---------------------------------------------------------------------------------------------------------
-
-      
-        switch (inputtext)
-        {
-             
-           
-            case "p":
-                picture_p = this.GetComponent<Image>();
-                picture_p.sprite = Resources.Load("pic/Pumpe_t", typeof(Sprite)) as Sprite;
-           
-                break;
-            case "v":
-                
-                picture_v = this.GetComponent<Image>();
-                picture_v.sprite = Resources.Load("pic/valve_t", typeof(Sprite)) as Sprite;
-               
-                break;
-            case "t":
-                picture_t = this.GetComponent<Image>();
-                picture_t.sprite = Resources.Load("pic/tank_t", typeof(Sprite)) as Sprite;
-               
-                break;
-
-        }
-
-
-
+        global_animator = GameObject.Find("DisplayArea").GetComponent<Animator>();
+        component_img.color = new Color(1,1,1,0.0f);
         // in to detail view-------------------------------------------------------------------------------------------------------
-        btn = GameObject.Find("Button").GetComponent<Button>();
-        btn.onClick.AddListener(delegate () {
-
+        btn.onClick.AddListener(() => {
+            
+            Debug.Log("Go to detail");
             switch (inputtext)
             {
-
-                case "t":
+                case "T":
                     GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Tank1");
-                    global_animator.SetTrigger("EnterDetailView");
                     break;
 
-                case "p":
+                case "P":
                     GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Tank2");
-                    global_animator.SetTrigger("EnterDetailView");
                     break;
 
-                case "v":
-
-                    Debug.Log("按下换界面按钮");
+                case "V":
                     GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Ventile1");
-                    global_animator.SetTrigger("EnterDetailView");
                     break;
+                default: break;
             }
+            global_animator.SetTrigger("Search2Detail");
         });
-       
-	}
+    }
+
+    // Update is called once per frame
+    public void changePictrues(string searchText)
+    {
+
+        inputtext = searchText.Substring(0, 1).ToUpper();
+
+        Debug.Log("Change Photo");
+
+        Debug.Log("Type:" + inputtext);
+
+        // update picture---------------------------------------------------------------------------------------------------------
+        component_img.color = new Color(1, 1, 1, 1);
+        switch (inputtext)
+        {
+
+            case "P":
+                component_img.sprite = Resources.Load("pic/Pumpe_t", typeof(Sprite)) as Sprite;
+                break;
+            case "V":
+                component_img.sprite = Resources.Load("pic/valve_t", typeof(Sprite)) as Sprite;
+                break;
+            case "T":
+                component_img.sprite = Resources.Load("pic/tank_t", typeof(Sprite)) as Sprite;
+                break;
+            default: break;
+        }
+    }
 }
