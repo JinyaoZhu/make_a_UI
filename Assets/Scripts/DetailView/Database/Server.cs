@@ -36,6 +36,13 @@ public class Server : MonoBehaviour {
         Tank1.valueBarsValue[0] += delta1_1;
         if (Tank1.valueBarsValue[0] >= Tank1.valueBarsMaxValue[0]) delta1_1 = -delta1_1;
         if (Tank1.valueBarsValue[0] <= Tank1.valueBarsMinValue[0]) delta1_1 = -delta1_1;
+
+        if (Tank1.valueBarsValue[0] <= 0.1 * Tank1.valueBarsMaxValue[0])
+            Tank1.status = "Empty";
+        else if (Tank1.valueBarsValue[0] >= 0.9 * Tank1.valueBarsMaxValue[0])
+            Tank1.status = "Full";
+        else
+            Tank1.status = "Normal";
     }
 
     private void Tank2Update()
@@ -53,7 +60,7 @@ public class Server : MonoBehaviour {
 
     private void Tank1Init(Component component) {
         component.componentName = "Tank1";
-        component.status = "normal";
+        component.status = "Normal";
         component.buttonsIsActive = new bool[] { true, false, false, false };
         component.buttonsState = new bool[] { true, false, false, false };
         component.buttonsName = new string[] { "F1", "NULL", "NULL", "NULL" };
@@ -75,7 +82,7 @@ public class Server : MonoBehaviour {
     private void Tank2Init(Component component)
     {
         component.componentName = "Tank2";
-        component.status = "normal";
+        component.status = "Warning";
         component.buttonsIsActive = new bool[] { true, true, false, false };
         component.buttonsState = new bool[] { true, true, false, false };
         component.buttonsName = new string[] { "F1", "F2", "NULL", "NULL" };
@@ -97,7 +104,7 @@ public class Server : MonoBehaviour {
     private void Ventil1Init(Component component)
     {
         component.componentName = "Ventil1";
-        component.status = "normal";
+        component.status = "Normal";
         component.buttonsIsActive = new bool[] { false, false, false, false };
         component.buttonsState = new bool[] { false, false, false, false };
         component.buttonsName = new string[] { " ", " ", " ", " " };

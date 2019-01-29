@@ -143,6 +143,9 @@ public class ButtonTest : MonoBehaviour
 
         a.transform.Find("Text").GetComponent<Text>().text = Thema;
 
+        a.GetComponent<Button>().GetComponent<Image>().color = Color.black;
+        a.GetComponent<Button>().GetComponentInChildren<Text>().color = Color.white;
+
         a.GetComponent<Button>().onClick.AddListener(
        delegate () {
 

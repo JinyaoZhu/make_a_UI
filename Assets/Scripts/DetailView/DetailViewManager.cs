@@ -95,8 +95,7 @@ public class DetailViewManager : MonoBehaviour {
         int i;
         // set header
         header.SetName(component.componentName);
-        header.SetStatus(component.status);
-
+      
         // set buttons
         i = 0;
         foreach (FlatButton button in buttons) {
@@ -137,7 +136,7 @@ public class DetailViewManager : MonoBehaviour {
             Destroy(model);
         }
         model = Instantiate(component.model, stage.transform, false);
-        model.transform.localPosition = new Vector3(50, 50, 1000);
+        model.transform.localPosition = new Vector3(0, 0, 1000);
         model.SetActive(true);
     }
     // update panel with component data
@@ -148,6 +147,8 @@ public class DetailViewManager : MonoBehaviour {
               bar.SetValue(component.valueBarsValue[i]);
            i++;
         }
+        // change status
+        header.SetStatus(component.status);
     }
 
 

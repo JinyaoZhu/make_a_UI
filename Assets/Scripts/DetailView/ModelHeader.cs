@@ -26,6 +26,12 @@ public class ModelHeader : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (modelStatus.text == "Normal" || modelStatus.text == "normal") {
+            modelStatus.color = Color.green;
+        }
+        else
+        {
+            modelStatus.color = Color.red;
+        }
 	}
 }
