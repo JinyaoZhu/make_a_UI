@@ -25,7 +25,7 @@ public class PlotGraph : MonoBehaviour
     private string last_title = " ";
 
     private string xLabel = "Hour";
-    private string yLabel = "Liter";
+    private string yLabel = "Unit";
 
     private int xMaximum = 24;
 

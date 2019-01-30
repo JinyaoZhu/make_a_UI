@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class buttonManager : MonoBehaviour
 {
     private Animator displayAreaAnimator; // we need this for entering the component detail view
+    private MainViewManager mainViewManager; // for demo
 
     // Database holding all the information we could ever need
     private Database database;
@@ -33,6 +34,8 @@ public class buttonManager : MonoBehaviour
     void Start ()
     {
         displayAreaAnimator = GameObject.Find("DisplayArea").GetComponent<Animator>();
+
+        mainViewManager = GameObject.Find("DisplayArea/MainView").GetComponent<MainViewManager>();
         // Get ref to database
         database = GameObject.Find("Database").GetComponent<Database>();
         // get ref to guiUpdate
@@ -129,6 +132,8 @@ public class buttonManager : MonoBehaviour
             // If the process object is not visible: deactivate the button and set database value
             if (!partOfProcessObjectVisible)
             {
+                mainViewManager.DemoDisableObjectButton(); // for demo
+
                 // Only disable button if it isn't already disabled
                 if (correspondingProcessObjectButton.enabled)
                 {
@@ -150,6 +155,8 @@ public class buttonManager : MonoBehaviour
             // If the process object is visible: activate button (if not already activated), set position + set values in database
             else
             {
+                mainViewManager.DemoEnableObjectButton(); // for demo
+
                 // Set button values
                 correspondingProcessObjectButton.transform.position = buttonPosition;
                 correspondingProcessObjectButton.transform.rotation = buttonRotation;

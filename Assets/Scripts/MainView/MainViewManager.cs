@@ -11,8 +11,27 @@ public class MainViewManager : MonoBehaviour {
 
     Animator global_animator;
 
-	// Use this for initialization
-	void Start () {
+    public void DemoDisableObjectButton() {
+        GameObject.Find("DisplayArea/MainView/MainArea/P001").SetActive(false);
+        GameObject.Find("DisplayArea/MainView/MainArea/T001").SetActive(false);
+        GameObject.Find("DisplayArea/MainView/MainArea/T002").SetActive(false);
+        GameObject.Find("DisplayArea/MainView/MainArea/V001").SetActive(false);
+        GameObject.Find("DisplayArea/MainView/MainArea/V002").SetActive(false);
+        GameObject.Find("DisplayArea/MainView/MainArea/M001").SetActive(false);
+    }
+
+    public void DemoEnableObjectButton()
+    {
+        GameObject.Find("DisplayArea/MainView/MainArea/P001").SetActive(true);
+        GameObject.Find("DisplayArea/MainView/MainArea/T001").SetActive(true);
+        GameObject.Find("DisplayArea/MainView/MainArea/T002").SetActive(true);
+        GameObject.Find("DisplayArea/MainView/MainArea/V001").SetActive(true);
+        GameObject.Find("DisplayArea/MainView/MainArea/V002").SetActive(true);
+        GameObject.Find("DisplayArea/MainView/MainArea/M001").SetActive(true);
+    }
+
+    // Use this for initialization
+    void Start () {
 		global_animator = GameObject.Find("DisplayArea").GetComponent<Animator> ();
 		settingButton.onClick.AddListener (onSettingClick);
 		searchButton.onClick.AddListener (onSearchClick);

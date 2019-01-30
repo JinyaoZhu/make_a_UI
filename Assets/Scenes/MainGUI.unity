@@ -2363,7 +2363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &189349299
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4129,7 +4129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &397183994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4901,7 +4901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: -0.000030517578}
+  m_AnchoredPosition: {x: -0.00012207031, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &476971242
@@ -5677,6 +5677,10 @@ Prefab:
         type: 2}
       propertyPath: m_Color.b
       value: 0.3803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013392114050, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
@@ -7790,6 +7794,10 @@ Prefab:
       propertyPath: m_Text
       value: T001
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013392114050, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
   m_IsPrefabAsset: 0
@@ -9181,7 +9189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &820249605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9911,7 +9919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &882027979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10572,6 +10580,10 @@ Prefab:
     - target: {fileID: 1000013392114050, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
       propertyPath: m_Name
       value: P001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013392114050, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
@@ -12599,7 +12611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1061559279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14989,6 +15001,10 @@ Prefab:
       propertyPath: m_Name
       value: M001
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013392114050, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
   m_IsPrefabAsset: 0
@@ -15689,6 +15705,10 @@ Prefab:
         type: 2}
       propertyPath: m_Text
       value: T002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013392114050, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
@@ -17295,7 +17315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1384441946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21572,7 +21592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 23, y: -0.025016785}
+  m_AnchoredPosition: {x: 23, y: -0.025024414}
   m_SizeDelta: {x: 46, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1754265139
@@ -22412,6 +22432,10 @@ Prefab:
     - target: {fileID: 1000013392114050, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
       propertyPath: m_Name
       value: V002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013392114050, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554c027182c3e764dab6bb02e94fe642, type: 2}
@@ -23523,17 +23547,17 @@ MonoBehaviour:
   _foundMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerFoundEvent, Assembly-CSharp, Version=1.0.2.19877, Culture=neutral,
+    m_TypeName: Kudan.AR.MarkerFoundEvent, Assembly-CSharp, Version=1.0.2.21857, Culture=neutral,
       PublicKeyToken=null
   _lostMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerLostEvent, Assembly-CSharp, Version=1.0.2.19877, Culture=neutral,
+    m_TypeName: Kudan.AR.MarkerLostEvent, Assembly-CSharp, Version=1.0.2.21857, Culture=neutral,
       PublicKeyToken=null
   _updateMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerUpdateEvent, Assembly-CSharp, Version=1.0.2.19877,
+    m_TypeName: Kudan.AR.MarkerUpdateEvent, Assembly-CSharp, Version=1.0.2.21857,
       Culture=neutral, PublicKeyToken=null
 --- !u!4 &1921123149
 Transform:
@@ -25110,7 +25134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!20 &2040254104
 Camera:
   m_ObjectHideFlags: 0
