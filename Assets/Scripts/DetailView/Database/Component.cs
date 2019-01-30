@@ -7,6 +7,7 @@ public class Component : IEquatable<Component>
 {
 
     public string componentName;
+    public string id;
     public string status;
 
     public bool[] buttonsIsActive; // if the button is active
@@ -24,6 +25,8 @@ public class Component : IEquatable<Component>
     public string settingBarName;
     public string settingBarUnit;
     public float settingBarValue;
+    public float settingBarMaxValue;
+    public float settingBarMinValue;
 
     public bool powerIsActive;
     public bool powerState;

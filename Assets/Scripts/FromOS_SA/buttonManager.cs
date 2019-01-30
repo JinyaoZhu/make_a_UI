@@ -66,8 +66,10 @@ public class buttonManager : MonoBehaviour
             // Make button, give it a name, get the canvas and save
             GameObject newButton = Instantiate(ButtonPrefab, moduleTransform.parent.transform, false);
             newButton.transform.name = moduleProcessObject.name;
+            //newButton.name = "M001";
+            newButton.transform.localScale = new Vector3(10, 10, 10);
             newButton.GetComponent<Canvas>().enabled = false;
-            newButton.GetComponentInChildren<Button>().onClick.AddListener(() => { displayAreaAnimator.SetTrigger("EnterDetailView"); });
+            //newButton.GetComponentInChildren<Button>().onClick.AddListener(() => { displayAreaAnimator.SetTrigger("EnterDetailView"); });
             moduleButtons.Add(newButton.GetComponent<Canvas>());
         }
         // We now have everything that we need: the module transform, a list of all process objects in the model and a list of all buttons for those process objects.

@@ -23,15 +23,24 @@ public class ModelHeader : MonoBehaviour {
     void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (modelStatus.text == "Normal" || modelStatus.text == "normal") {
-            modelStatus.color = Color.green;
-        }
-        else
+
+    // Update is called once per frame
+    void Update() {
+        if (modelStatus.text == "Normal" || modelStatus.text == "normal")
         {
-            modelStatus.color = Color.red;
+            modelStatus.color = new Color(0, 1, 0, 1);
         }
-	}
+        else if (modelStatus.text == "Warning")
+        {
+            modelStatus.color = new Color(1.0f, 1.0f, .4f, 1.0f);
+        }
+        else if (modelStatus.text == "Off")
+        {
+            modelStatus.color = new Color(.8f, .8f, .8f, 0.8f);
+        }
+        else if (modelStatus.text == "Danger")
+        {
+            modelStatus.color = new Color(1, 0, 0, 1);
+        }
+    }
 }

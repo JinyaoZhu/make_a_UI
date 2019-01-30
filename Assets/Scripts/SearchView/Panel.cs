@@ -5,10 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.Sprites;
 
 public class Panel : MonoBehaviour {
-    Animator global_animator;
-    string inputtext;
+    
     public Button btn;
     public Image component_img;
+
+    private Animator global_animator;
+    private string current_selected = " ";
 
     // Use this for initialization
     void Start ()
@@ -16,24 +18,31 @@ public class Panel : MonoBehaviour {
         global_animator = GameObject.Find("DisplayArea").GetComponent<Animator>();
         component_img.color = new Color(1,1,1,0.0f);
         // in to detail view-------------------------------------------------------------------------------------------------------
+        //btn.onClick.AddListener(() => {
+
+        //    Debug.Log("Go to detail");
+        //    switch (inputtext)
+        //    {
+        //        case "T":
+        //            GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Tank1");
+        //            break;
+
+        //        case "P":
+        //            GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Tank2");
+        //            break;
+
+        //        case "V":
+        //            GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Ventile1");
+        //            break;
+        //        default: break;
+        //    }
+        //    global_animator.SetTrigger("Search2Detail");
+        //});
+
         btn.onClick.AddListener(() => {
-            
-            Debug.Log("Go to detail");
-            switch (inputtext)
-            {
-                case "T":
-                    GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Tank1");
-                    break;
-
-                case "P":
-                    GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Tank2");
-                    break;
-
-                case "V":
-                    GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent("Ventile1");
-                    break;
-                default: break;
-            }
+            if (current_selected.Contains("Dummy") || current_selected.Contains("dummy"))
+                return;
+            GameObject.Find("DisplayArea/DetailView").GetComponent<DetailViewManager>().SetCurrentComponent(current_selected);
             global_animator.SetTrigger("Search2Detail");
         });
     }
@@ -41,16 +50,10 @@ public class Panel : MonoBehaviour {
     // Update is called once per frame
     public void changePictrues(string searchText)
     {
-
-        inputtext = searchText.Substring(0, 1).ToUpper();
-
-        Debug.Log("Change Photo");
-
-        Debug.Log("Type:" + inputtext);
-
+        current_selected = searchText;
         // update picture---------------------------------------------------------------------------------------------------------
         component_img.color = new Color(1, 1, 1, 1);
-        switch (inputtext)
+        switch (searchText.Substring(0, 1).ToUpper())
         {
 
             case "P":
@@ -64,5 +67,5 @@ public class Panel : MonoBehaviour {
                 break;
             default: break;
         }
-    }
+     }
 }

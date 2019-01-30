@@ -33,6 +33,15 @@ public class SettingSlider : MonoBehaviour
         slider.value = value;
     }
 
+    public void SetMaxValue(float max) {
+        slider.maxValue = max;
+    }
+
+    public void SetMinValue(float min)
+    {
+        slider.minValue = min;
+    }
+
     public float GetValue() {
         return slider.value;
     }

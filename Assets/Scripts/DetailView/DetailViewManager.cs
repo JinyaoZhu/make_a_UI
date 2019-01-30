@@ -50,13 +50,16 @@ public class DetailViewManager : MonoBehaviour {
         plotter = transform.Find("Content/Graphics/Lower/Graph").GetComponent<PlotGraph>();
         stage = transform.Find("Content/Graphics/Upper/Model/Model/Stage").GetComponent<Camera>();
 
-        server = transform.Find("Database/Server").GetComponent<Server>();
+        server = GameObject.Find("DisplayArea/Database/Server").GetComponent<Server>();
 
         currentComponentName = "";
 
-        components.Add("Tank1", server.Tank1);
-        components.Add("Tank2", server.Tank2);
-        components.Add("Ventile1", server.Ventile1);
+        components.Add("T001", server.Tank1);
+        components.Add("T002", server.Tank2);
+        components.Add("V001", server.Ventile1);
+        components.Add("V002", server.Ventile2);
+        components.Add("M001", server.Mischer1);
+        components.Add("P001", server.Pumpe1);
     }
 
         // Update is called once per frame
@@ -123,6 +126,8 @@ public class DetailViewManager : MonoBehaviour {
         // setting slider
         slider.SetHead(component.settingBarName);
         slider.SetUnit(component.settingBarUnit);
+        slider.SetMaxValue(component.settingBarMaxValue);
+        slider.SetMinValue(component.settingBarMinValue);
         slider.SetValue(component.settingBarValue);
         slider.SetActive(component.settingBarIsActive);
 

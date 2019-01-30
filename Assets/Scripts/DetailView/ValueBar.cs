@@ -80,13 +80,13 @@ public class ValueBar : MonoBehaviour {
 
         if (slider.value >= 0.9 * slider.maxValue)
         {
-            warningText.text = "FULL!";
-            warningText.gameObject.SetActive(true);
+            //warningText.text = "FULL!";
+            //warningText.gameObject.SetActive(true);
         }
         else if (slider.value <= 0.1 * slider.maxValue)
         {
-            warningText.text = "EMPTY!";
-            warningText.gameObject.SetActive(true);
+            //warningText.text = "EMPTY!";
+            //warningText.gameObject.SetActive(true);
         }
         else {
             warningText.gameObject.SetActive(false);
