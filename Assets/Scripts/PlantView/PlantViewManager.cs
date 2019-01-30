@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class PlantViewManager : MonoBehaviour {
 
 	public Button returnButton;
 
+    public Text time;
     public GameObject V001;
     public GameObject V002;
     public GameObject T001;
@@ -68,6 +70,8 @@ public class PlantViewManager : MonoBehaviour {
         setStatusColor(server.Ventile2, V002);
         setStatusColor(server.Mischer1, M001);
         setStatusColor(server.Pumpe1, P001);
+
+        time.text = System.DateTime.UtcNow.ToString("HH:mm:ss, dd MMMM, yyyy")+"  ";
     }
 
 	void onReturnClick(){
