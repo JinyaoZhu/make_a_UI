@@ -102,7 +102,8 @@ public class Server : MonoBehaviour {
             Mischer1.status = "Normal";
 
 
-        Mischer1.valueBarsValue[0] = Mischer1 .settingBarValue + 3*Mathf.Sin(current_time);
+        Mischer1.valueBarsValue[0] = Mischer1 .settingBarValue + Mathf.Sin(10.0f*current_time);
+        Mischer1.valueBarsValue[1] = 25 + 2 * Mathf.Sin(0.5f*current_time);
     }
 
     private void VentileUpdate() {
@@ -231,7 +232,7 @@ public class Server : MonoBehaviour {
         component.buttonsName = new string[] { "Heating", "Cooling", "FN1", "FN2" };
         component.valueBarsIsActive = new bool[] { true, true };
         component.valueBarsValue = new float[] { 50, 25 };
-        component.valueBarsMaxValue = new float[] { 100, 100 };
+        component.valueBarsMaxValue = new float[] { 100, 50 };
         component.valueBarsMinValue = new float[] { 0, 0 };
         component.valueBarsName = new string[] { "Vel.", "Temp." };
         component.valueBarsUnit = new string[] { "/rpm", "/C" };
