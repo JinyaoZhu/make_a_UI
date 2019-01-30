@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DetailViewManager : MonoBehaviour {
 
 	public Button returnButton;
+    public Button plantButton;
 
     Animator global_animator;
 
@@ -36,7 +37,8 @@ public class DetailViewManager : MonoBehaviour {
     void Start()
     {
         global_animator = GameObject.Find("DisplayArea").GetComponent<Animator>();
-        returnButton.onClick.AddListener(OnReturnClick);
+        returnButton.onClick.AddListener(()=>{global_animator.SetTrigger("ExitDetailView");});
+        plantButton.onClick.AddListener(()=>{global_animator.SetTrigger("Detail2Plant");});
 
         buttons[0] = transform.Find("Content/Buttons/Upper/Row1/Button1").GetComponent<FlatButton>();
         buttons[1] = transform.Find("Content/Buttons/Upper/Row1/Button2").GetComponent<FlatButton>();
@@ -156,8 +158,4 @@ public class DetailViewManager : MonoBehaviour {
         header.SetStatus(component.status);
     }
 
-
-	void OnReturnClick(){
-		global_animator.SetTrigger("ExitDetailView");
-	}
 }

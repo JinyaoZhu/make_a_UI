@@ -152,8 +152,8 @@ public class Server : MonoBehaviour {
         component.id = "T002";
         component.status = "Danger";
         component.buttonsIsActive = new bool[] { true, true, false, false };
-        component.buttonsState = new bool[] { true, true, false, false };
-        component.buttonsName = new string[] { "F1", "F2", "NULL", "NULL" };
+        component.buttonsState = new bool[] { true, true, true, false };
+        component.buttonsName = new string[] { "F1", "F2", "F3", "NULL" };
         component.valueBarsIsActive = new bool[] { true, true };
         component.valueBarsValue = new float[] { 50, 0 };
         component.valueBarsMaxValue = new float[] { 100, 100 };
@@ -228,7 +228,7 @@ public class Server : MonoBehaviour {
         component.status = "Off";
         component.buttonsIsActive = new bool[] { true, true, false, false };
         component.buttonsState = new bool[] { true, false, false, false };
-        component.buttonsName = new string[] { "F1", "F2", " ", " " };
+        component.buttonsName = new string[] { "Heating", "Cooling", " ", " " };
         component.valueBarsIsActive = new bool[] { true, false };
         component.valueBarsValue = new float[] { 50, 0 };
         component.valueBarsMaxValue = new float[] { 100, 100 };
