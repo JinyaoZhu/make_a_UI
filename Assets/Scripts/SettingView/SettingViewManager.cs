@@ -123,7 +123,8 @@ public class SettingViewManager : MonoBehaviour {
         LogoutConfirm.gameObject.SetActive (false);
         // TODO:
         // now is equal to exit
-        exitYesClicked();
+        Application.Quit();
+        // exitYesClicked();
     }
 
     void onReturnClick () {

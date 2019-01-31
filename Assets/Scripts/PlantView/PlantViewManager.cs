@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlantViewManager : MonoBehaviour {
 
 	public Button returnButton;
+    public Text time;
 
     public GameObject V001;
     public GameObject V002;
@@ -61,7 +63,7 @@ public class PlantViewManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        time.text = System.DateTime.UtcNow.ToString("HH:mm:ss,  dd MMMM, yyyy   ");
         setStatusColor(server.Tank1, T001);
         setStatusColor(server.Tank2, T002);
         setStatusColor(server.Ventile1, V001);
