@@ -27,7 +27,6 @@ public class ButtonTest : MonoBehaviour
     {
         parent = GameObject.Find("Content");
         contentSize = parent.GetComponent<RectTransform>().sizeDelta;
-        item = Resources.Load("Button") as GameObject;
         itemHeight = item.GetComponent<RectTransform>().rect.height;
         itemLocalPos = item.transform.localPosition;
 
@@ -141,9 +140,7 @@ public class ButtonTest : MonoBehaviour
         GameObject a = Instantiate(item);
 
         a.transform.Find("Text").GetComponent<Text>().text = Thema;
-
-        a.GetComponent<Button>().GetComponent<Image>().color = Color.black;
-        a.GetComponent<Button>().GetComponentInChildren<Text>().color = Color.white;
+        a.SetActive(true);
         a.GetComponent<Button>().onClick.AddListener(()=>{
            Debug.Log("Choose Item");
            GameObject.Find("SearchView").transform.Find("MainArea/Panel").GetComponent<CanvasGroup>().alpha = 1f;

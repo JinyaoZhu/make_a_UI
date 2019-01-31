@@ -57,13 +57,16 @@ public class Panel : MonoBehaviour {
         {
 
             case "P":
-                component_img.sprite = Resources.Load("pic/Pumpe_t", typeof(Sprite)) as Sprite;
+                component_img.sprite = Resources.Load("pumpe_t", typeof(Sprite)) as Sprite;
                 break;
             case "V":
-                component_img.sprite = Resources.Load("pic/valve_t", typeof(Sprite)) as Sprite;
+                component_img.sprite = Resources.Load("valve_t", typeof(Sprite)) as Sprite;
                 break;
             case "T":
-                component_img.sprite = Resources.Load("pic/tank_t", typeof(Sprite)) as Sprite;
+                component_img.sprite = Resources.Load("tank_t", typeof(Sprite)) as Sprite;
+                break;
+            case "M":
+                component_img.sprite = Resources.Load("Mischer_1", typeof(Sprite)) as Sprite;
                 break;
             default: break;
         }
