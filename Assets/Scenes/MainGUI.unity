@@ -5088,7 +5088,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Conneted to OPC UA server: http:xxx.xxx.xxx.xxxx:8888/OPC/UA'
+  m_Text: 'Conneted to OPC UA server: http://xxx.xxx.xxx.xxx:8888/OPC/UA'
 --- !u!222 &479609964
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6340,7 +6340,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Conneted to OPC UA server: http:xxx.xxx.xxx.xxxx:8888/OPC/UA'
+  m_Text: 'Conneted to OPC UA server: http://xxx.xxx.xxx.xxx:8888/OPC/UA'
 --- !u!222 &628691183
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23548,17 +23548,17 @@ MonoBehaviour:
   _foundMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerFoundEvent, Assembly-CSharp, Version=1.0.2.37168, Culture=neutral,
+    m_TypeName: Kudan.AR.MarkerFoundEvent, Assembly-CSharp, Version=1.0.2.37230, Culture=neutral,
       PublicKeyToken=null
   _lostMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerLostEvent, Assembly-CSharp, Version=1.0.2.37168, Culture=neutral,
+    m_TypeName: Kudan.AR.MarkerLostEvent, Assembly-CSharp, Version=1.0.2.37230, Culture=neutral,
       PublicKeyToken=null
   _updateMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerUpdateEvent, Assembly-CSharp, Version=1.0.2.37168,
+    m_TypeName: Kudan.AR.MarkerUpdateEvent, Assembly-CSharp, Version=1.0.2.37230,
       Culture=neutral, PublicKeyToken=null
 --- !u!4 &1921123149
 Transform:
