@@ -2507,7 +2507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &189349299
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4288,7 +4288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &397183994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5247,7 +5247,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Conneted to OPC UA server: http//:xxx.xxx.xxx.xxx:8888/OPC/UA'
+  m_Text: 'Conneted to OPC UA server: http://xxx.xxx.xxx.xxx:8888/OPC/UA'
 --- !u!222 &479609964
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6504,7 +6504,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Conneted to OPC UA server: http//:xxx.xxx.xxx.xxx:8888/OPC/UA'
+  m_Text: 'Conneted to OPC UA server: http://xxx.xxx.xxx.xxx:8888/OPC/UA'
 --- !u!222 &628691183
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9588,7 +9588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &820249605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10318,7 +10318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &882027979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13010,7 +13010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1061559279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15869,6 +15869,21 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 0.000061035156
       objectReference: {fileID: 0}
+    - target: {fileID: 224246610666113952, guid: 54d2170b48664a0409e5e5301288fa76,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224964415216865564, guid: 54d2170b48664a0409e5e5301288fa76,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224964415216865564, guid: 54d2170b48664a0409e5e5301288fa76,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54d2170b48664a0409e5e5301288fa76, type: 2}
   m_IsPrefabAsset: 0
@@ -17845,7 +17860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1384441946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24499,18 +24514,18 @@ MonoBehaviour:
   _foundMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerFoundEvent, Assembly-CSharp, Version=1.0.2.42450, Culture=neutral,
+    m_TypeName: Kudan.AR.MarkerFoundEvent, Assembly-CSharp, Version=1.0.2.230, Culture=neutral,
       PublicKeyToken=null
   _lostMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerLostEvent, Assembly-CSharp, Version=1.0.2.42450, Culture=neutral,
+    m_TypeName: Kudan.AR.MarkerLostEvent, Assembly-CSharp, Version=1.0.2.230, Culture=neutral,
       PublicKeyToken=null
   _updateMarkerEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Kudan.AR.MarkerUpdateEvent, Assembly-CSharp, Version=1.0.2.42450,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: Kudan.AR.MarkerUpdateEvent, Assembly-CSharp, Version=1.0.2.230, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &1921123149
 Transform:
   m_ObjectHideFlags: 0
@@ -26087,7 +26102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!20 &2040254104
 Camera:
   m_ObjectHideFlags: 0
@@ -27256,7 +27271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.000007171828}
   m_SizeDelta: {x: 858, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!225 &2144888168
