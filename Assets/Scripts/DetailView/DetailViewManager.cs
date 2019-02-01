@@ -11,7 +11,7 @@ public class DetailViewManager : MonoBehaviour {
     Animator global_animator;
 
     // all elements in panel
-    private FlatButton[] buttons = new FlatButton[4];
+    private FlatButton[] buttons = new FlatButton[6];
     private ValueBar[] bars = new ValueBar[2];
     private SettingSlider slider;
     private PowerSlider power;
@@ -44,6 +44,9 @@ public class DetailViewManager : MonoBehaviour {
         buttons[1] = transform.Find("Content/Buttons/Upper/Row1/Button2").GetComponent<FlatButton>();
         buttons[2] = transform.Find("Content/Buttons/Upper/Row2/Button3").GetComponent<FlatButton>();
         buttons[3] = transform.Find("Content/Buttons/Upper/Row2/Button4").GetComponent<FlatButton>();
+        buttons[4] = transform.Find("Content/Buttons/Upper/Row3/Button5").GetComponent<FlatButton>();
+        buttons[5] = transform.Find("Content/Buttons/Upper/Row3/Button6").GetComponent<FlatButton>();
+
         bars[0] = transform.Find("Content/Graphics/Upper/Bars/ValueBar1").GetComponent<ValueBar>();
         bars[1] = transform.Find("Content/Graphics/Upper/Bars/ValueBar2").GetComponent<ValueBar>();
         slider = transform.Find("Content/Buttons/Lower/SettingSlider").GetComponent<SettingSlider>();

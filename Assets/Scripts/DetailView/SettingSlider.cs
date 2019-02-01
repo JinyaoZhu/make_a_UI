@@ -11,7 +11,7 @@ public class SettingSlider : MonoBehaviour
     public GameObject fillArea;
     public Button button;
 
-    private string text_head = "VALUE:";
+    private string text_head = "Demo:";
     private string text_unit = "/unit";
     public bool is_active = false;
 
